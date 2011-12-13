@@ -1,5 +1,6 @@
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme molokai
+color molokai
 call togglebg#map("<F5>")
 

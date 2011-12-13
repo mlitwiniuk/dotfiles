@@ -11,7 +11,7 @@ r3(){
 }
 
 r2(){
-  rvm user ree@rails2
+  rvm use ree@rails2
   cd ~/Sites/r2/
 }
 
