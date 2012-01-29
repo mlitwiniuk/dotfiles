@@ -83,3 +83,5 @@ nnoremap <C-l> <C-w>l
 
 
 
+set wildignore+=*.o,*.obj,.git,vendor,*.log,tmp,*~
+

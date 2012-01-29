@@ -1,4 +1,5 @@
 ZSH_THEME="eastwood"
+PATH="/usr/local/lib/node_modules:$PATH"
 
 r31(){
   rvm use 1.9.2@rails31
