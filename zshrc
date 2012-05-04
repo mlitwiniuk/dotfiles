@@ -1,4 +1,4 @@
-ZSH_THEME="eastwood"
+# ZSH_THEME="eastwood"
 PATH="/usr/local/lib/node_modules:$PATH"
 
 r31(){
