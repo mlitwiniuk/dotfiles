@@ -66,18 +66,14 @@ vnoremap > >gv
 let g:ruby_conque_rspec_command='bundle exec rspec'
 
 " theme // appearance
-colorscheme molokai
-color molokai
 if has("gui_running")
   set guifont=Menlo\ Regular:h10
-  colorscheme molokai
-  color molokai
+  colorscheme solarized
+  color solarized
   " set background=light
   set background=dark
-  
-  map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-
 endif
+map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 
 " ctrlp plugin config
@@ -101,6 +97,7 @@ map ,jc :CtrlP app/controllers<CR>
 map ,jv :CtrlP app/views<CR>
 map ,jh :CtrlP app/helpers<CR>
 map ,jl :CtrlP lib<CR>
+map ,ja :CtrlP app/assets<CR>
 map ,jp :CtrlP public<CR>
 map ,js :CtrlP spec<CR>
 map ,jf :CtrlP fast_spec<CR>
@@ -116,4 +113,12 @@ map ,m :CtrlPBufTag<CR>
 "Ctrl-(M)ethod - jump to a method (tag in all files)
 map ,M :CtrlPBufTagAll<CR>
 
+" Clear search results
+noremap <silent>// :nohls<CR>
+
+" Nerd commenter
+map <leader>/ :call NERDComment(0, "invert")<cr>
+map <D-/> :call NERDComment(0, "invert")<cr>
+
+map <leader>p :CtrlP<CR>
 
