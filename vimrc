@@ -67,7 +67,11 @@ let g:ruby_conque_rspec_command='bundle exec rspec'
 
 " theme // appearance
 if has("gui_running")
-  set guifont=Menlo\ Regular:h10
+  if has("mac") || has("macunix")
+    set guifont=Menlo\ Regular:h10
+  else
+    set guifont=Monaco\ for\ Powerline\ 8
+  endif
   colorscheme solarized
   color solarized
   " set background=light
@@ -121,4 +125,11 @@ map <leader>/ :call NERDComment(0, "invert")<cr>
 map <D-/> :call NERDComment(0, "invert")<cr>
 
 map <leader>p :CtrlP<CR>
+
+" Y should behave like desired
+unmap Y
+
+" saves for vim / gvim
+nmap <c-s> :w<CR>
+imap <c-s> <Esc>:w<CR>a
 
