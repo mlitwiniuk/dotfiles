@@ -11,9 +11,22 @@ r3(){
   cd ~/Sites/r3/
 }
 
+rr31(){
+  cd ~/remoteSites/r31/
+}
+
+rr3(){
+  cd ~/remoteSites/r3/
+}
+
 r2(){
   rvm use ree@rails2
   cd ~/Sites/r2/
+}
+
+rp(){
+  rvm use 1.9.2@playground
+  cd ~/Sites/playground/
 }
 
 touchr(){
