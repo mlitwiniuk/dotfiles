@@ -129,3 +129,7 @@ map <leader>p :CtrlP<CR>
 " Y should behave like desired
 unmap Y
 
+" saves for vim / gvim
+nmap <c-s> :w<CR>
+imap <c-s> <Esc>:w<CR>a
+
