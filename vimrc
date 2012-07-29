@@ -68,7 +68,7 @@ let g:ruby_conque_rspec_command='bundle exec rspec'
 " theme // appearance
 if has("gui_running")
   if has("mac") || has("macunix")
-    set guifont=Menlo\ Regular:h10
+    set guifont=Menlo\ Regular:h12
   else
     set guifont=Monaco\ for\ Powerline\ 8
   endif
