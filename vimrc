@@ -68,13 +68,17 @@ let g:ruby_conque_rspec_command='bundle exec rspec'
 " theme // appearance
 if has("gui_running")
   if has("mac") || has("macunix")
-    set guifont=Menlo\ Regular:h12
+    set guifont=Menlo\ Regular:h11
   else
     set guifont=Monaco\ for\ Powerline\ 8
   endif
-  colorscheme solarized
-  color solarized
+  colorscheme Tomorrow-Night-Eighties
+  color Tomorrow-Night-Eighties
   " set background=light
+  set background=dark
+else
+  colorscheme Tomorrow-Night
+  color Tomorrow-Night
   set background=dark
 endif
 map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
