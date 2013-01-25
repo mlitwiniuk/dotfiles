@@ -1,8 +1,12 @@
 # ZSH_THEME="eastwood"
 PATH="/usr/local/lib/node_modules:$PATH"
 
+r4(){
+  rvm use 1.9.3-turbo@rails4
+  cd ~/Sites/r4/
+}
 r31(){
-  rvm use 1.9.2@rails31
+  rvm use 1.9.3-turbo@rails31
   cd ~/Sites/r31/
 }
 
@@ -25,7 +29,7 @@ r2(){
 }
 
 rp(){
-  rvm use 1.9.2@playground
+  rvm use 1.9.3-turbo@playground
   cd ~/Sites/playground/
 }
 

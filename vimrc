@@ -1,3 +1,6 @@
+"Bundle 'flazz/vim-colorschemes'
+Bundle 'pangloss/vim-erlang'
+
 set modelines=0
 
 set tabstop=2
@@ -5,7 +8,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-set relativenumber 
+set relativenumber
 set numberwidth=4
 
 let mapleader = ","
@@ -37,7 +40,7 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" au FocusLost * :wa
+au FocusLost * :wa
 
 nnoremap <leader>w <C-w>v<C-w>l
 
@@ -72,29 +75,31 @@ if has("gui_running")
   else
     set guifont=Monaco\ for\ Powerline\ 8
   endif
-  colorscheme Tomorrow-Night-Eighties
-  color Tomorrow-Night-Eighties
-  " set background=light
+  colorscheme molokai
+  color molokai
+  "set background=light
   set background=dark
 else
-  colorscheme Tomorrow-Night
-  color Tomorrow-Night
+  colorscheme badwolf
+  color badwolf
+  colorscheme atom
+  color atom
   set background=dark
 endif
 map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 
 " ctrlp plugin config
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.sass-cache$|\-svn$|vendor$'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.sass-cache$|\-svn$|vendor$|system|uploads'
 let g:ctrlp_max_files = 2000
 let g:ctrlp_max_depth = 10
 
 " Additional mapping for buffer search
-nnoremap ,b :CtrlPBuffer<cr>
-nnoremap <C-b> :CtrlPBuffer<cr>
+nnoremap ,b :CtrlPBuffer<CR>
+"nnoremap <C-b> :CtrlPBuffer<cr>
 
 " Cmd-Shift-P to clear the cache
-nnoremap <silent> <D-P> :ClearCtrlPCache<cr>
+nnoremap <silent> <D-P> :ClearCtrlPCache<CR>
 
 
 " Idea from : http://www.charlietanksley.net/blog/blog/2011/10/18/vim-navigation-with-lustyexplorer-and-lustyjuggler/
@@ -124,11 +129,29 @@ map ,M :CtrlPBufTagAll<CR>
 " Clear search results
 noremap <silent>// :nohls<CR>
 
+" NERDTree
+unmap <C-u>
+nnoremap <C-n> :NERDTreeToggle<CR>
+
 " Nerd commenter
 map <leader>/ :call NERDComment(0, "invert")<cr>
+nmap <leader>/ :call NERDComment(0, "invert")<cr>
+vmap <leader>/ :call NERDComment(0, "invert")<cr>
 map <D-/> :call NERDComment(0, "invert")<cr>
 
+" unmap <leader>po (paste from OS)
+unmap <leader>po
+" unmap all <leader>p commands
+unmap <leader>p
+unmap <leader>pp
+" unmap app <leader>b commands
+unmap <leader>bp
+unmap <leader>bn
+unmap <leader>bd
+
+
 map <leader>p :CtrlP<CR>
+
 
 " Y should behave like desired
 unmap Y
@@ -137,3 +160,11 @@ unmap Y
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
 
+let g:yankring_history_dir = '~/.vim/tmp'
+let g:yankring_enabled = 0
+autocmd VimEnter * let g:yankring_history_dir = '~/.vim/tmp'
+
+
+"let g:ctrlp_user_command = 'mdfind -onlyin %s file'
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
