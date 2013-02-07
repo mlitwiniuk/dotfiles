@@ -74,11 +74,19 @@ if has("gui_running")
     set guifont=Menlo\ Regular:h11
   else
     set guifont=Monaco\ for\ Powerline\ 8
+    set guifont=Meslo\ LG\ S\ 9
+    " COPY / PASTE IN LINUX
+    nmap <C-V> "+gP
+    imap <C-V> <ESC><C-V>i
+    vmap <C-C> "+y 
   endif
   colorscheme molokai
   color molokai
   "set background=light
   set background=dark
+  " Disable visual bell
+  set noerrorbells visualbell t_vb=
+  autocmd GUIEnter * set visualbell t_vb=
 else
   colorscheme badwolf
   color badwolf
@@ -140,14 +148,14 @@ vmap <leader>/ :call NERDComment(0, "invert")<cr>
 map <D-/> :call NERDComment(0, "invert")<cr>
 
 " unmap <leader>po (paste from OS)
-unmap <leader>po
+"unmap <leader>po
 " unmap all <leader>p commands
 unmap <leader>p
-unmap <leader>pp
+"unmap <leader>pp
 " unmap app <leader>b commands
-unmap <leader>bp
-unmap <leader>bn
-unmap <leader>bd
+"unmap <leader>bp
+"unmap <leader>bn
+"unmap <leader>bd
 
 
 map <leader>p :CtrlP<CR>

@@ -1,9 +1,15 @@
 # ZSH_THEME="eastwood"
 PATH="/usr/local/lib/node_modules:$PATH"
+source ~/.prograils_env
+source ~/.galdomedia_env
 
 r4(){
-  rvm use 1.9.3-turbo@rails4
+  rvm use 1.9.3-turbo@rails40
   cd ~/Sites/r4/
+}
+r32(){
+  rvm use 1.9.3-turbo@rails32
+  cd ~/Sites/r32/
 }
 r31(){
   rvm use 1.9.3-turbo@rails31
@@ -11,7 +17,7 @@ r31(){
 }
 
 r3(){
-  rvm use ree@rails3
+  rvm use ree@rails30
   cd ~/Sites/r3/
 }
 
