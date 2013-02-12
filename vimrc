@@ -73,10 +73,11 @@ if has("gui_running")
   if has("mac") || has("macunix")
     set guifont=Menlo\ Regular:h11
   else
-    set guifont=Monaco\ for\ Powerline\ 8
+    "set guifont=Monaco\ for\ Powerline\ 8
     set guifont=Meslo\ LG\ S\ 9
     " COPY / PASTE IN LINUX
-    nmap <C-V> "+gP
+    "nmap <C-V> "+gP
+    nmap <C-V> "+p
     imap <C-V> <ESC><C-V>i
     vmap <C-C> "+y 
   endif
@@ -98,7 +99,7 @@ map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 
 " ctrlp plugin config
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.sass-cache$|\-svn$|vendor$|system|uploads'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.sass-cache$|\-svn$|vendor$\|system$\|uploads$\|\.jpg$\|\.png$'
 let g:ctrlp_max_files = 2000
 let g:ctrlp_max_depth = 10
 
