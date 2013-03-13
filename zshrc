@@ -47,3 +47,6 @@ touchrd(){
   touchr
 }
 
+# allow pressing ctrl+s (do not block terminal)
+stty -ixon
+

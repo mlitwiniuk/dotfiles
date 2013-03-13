@@ -177,3 +177,8 @@ autocmd VimEnter * let g:yankring_history_dir = '~/.vim/tmp'
 "let g:ctrlp_user_command = 'mdfind -onlyin %s file'
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+
+
+" folding for ruby
+au FileType ruby setlocal foldmethod=syntax
