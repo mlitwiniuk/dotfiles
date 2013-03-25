@@ -1,5 +1,6 @@
 "Bundle 'flazz/vim-colorschemes'
-Bundle 'pangloss/vim-erlang'
+"Bundle 'pangloss/vim-erlang'
+Bundle 'airblade/vim-gitgutter'
 
 set modelines=0
 
@@ -54,7 +55,7 @@ nnoremap <C-l> <C-w>l
 
 
 
-set wildignore+=*.o,*.obj,.git,vendor,*.log,tmp,*~,.sass-cache,*.png,*.jpg,*.gif
+set wildignore+=*.o,*.obj,.git,vendor,*.log,tmp,*~,.sass-cache,*.png,*.jpg,*.gif,public
 
 
 map   <silent> <F5> mmgg=G'm
@@ -71,7 +72,9 @@ let g:ruby_conque_rspec_command='bundle exec rspec'
 " theme // appearance
 if has("gui_running")
   if has("mac") || has("macunix")
-    set guifont=Menlo\ Regular:h11
+    "set guifont=Menlo\ Regular:h11
+    set guifont=Source\ Code\ Pro\ Light:h10
+    "set guifont=Inconsolata-g:h9.5
   else
     "set guifont=Monaco\ for\ Powerline\ 8
     set guifont=Meslo\ LG\ S\ 9
@@ -79,18 +82,18 @@ if has("gui_running")
     "nmap <C-V> "+gP
     nmap <C-V> "+p
     imap <C-V> <ESC><C-V>i
-    vmap <C-C> "+y 
+    vmap <C-C> "+y
+    " Disable visual bell
+    set noerrorbells visualbell t_vb=
+    autocmd GUIEnter * set visualbell t_vb=
   endif
   colorscheme molokai
   color molokai
   "set background=light
   set background=dark
-  " Disable visual bell
-  set noerrorbells visualbell t_vb=
-  autocmd GUIEnter * set visualbell t_vb=
 else
-  colorscheme badwolf
-  color badwolf
+  " colorscheme badwolf
+  " color badwolf
   colorscheme atom
   color atom
   set background=dark
@@ -99,7 +102,7 @@ map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 
 " ctrlp plugin config
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.sass-cache$|\-svn$|vendor$\|system$\|uploads$\|\.jpg$\|\.png$'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.sass-cache$|\-svn$|vendor$\|system$\|uploads$\|\.jpg$\|\.png$\|public$'
 let g:ctrlp_max_files = 2000
 let g:ctrlp_max_depth = 10
 
@@ -149,14 +152,14 @@ vmap <leader>/ :call NERDComment(0, "invert")<cr>
 map <D-/> :call NERDComment(0, "invert")<cr>
 
 " unmap <leader>po (paste from OS)
-"unmap <leader>po
+unmap <leader>po
 " unmap all <leader>p commands
 unmap <leader>p
-"unmap <leader>pp
+unmap <leader>pp
 " unmap app <leader>b commands
-"unmap <leader>bp
-"unmap <leader>bn
-"unmap <leader>bd
+unmap <leader>bp
+unmap <leader>bn
+unmap <leader>bd
 
 
 map <leader>p :CtrlP<CR>
