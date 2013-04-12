@@ -4,7 +4,7 @@ source ~/.prograils_env
 source ~/.galdomedia_env
 
 r4(){
-  rvm use 1.9.3-turbo@rails40
+  rvm use 2.0@rails40
   cd ~/Sites/r4/
 }
 r32(){
