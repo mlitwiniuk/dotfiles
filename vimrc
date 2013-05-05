@@ -77,11 +77,13 @@ if has("gui_running")
     "set guifont=Inconsolata-g:h9.5
   else
     "set guifont=Monaco\ for\ Powerline\ 8
-    set guifont=Meslo\ LG\ S\ 9
+    "set guifont=Meslo\ LG\ S\ 9
+    "set guifont=Consolas\ 10
+    set guifont=Menlo\ for\ Powerline\ 9
     " COPY / PASTE IN LINUX
     "nmap <C-V> "+gP
     nmap <C-V> "+p
-    imap <C-V> <ESC><C-V>i
+    imap <C-V> <ESC><C-V>a
     vmap <C-C> "+y
     " Disable visual bell
     set noerrorbells visualbell t_vb=
@@ -152,14 +154,14 @@ vmap <leader>/ :call NERDComment(0, "invert")<cr>
 map <D-/> :call NERDComment(0, "invert")<cr>
 
 " unmap <leader>po (paste from OS)
-unmap <leader>po
+" unmap <leader>po
 " unmap all <leader>p commands
 unmap <leader>p
-unmap <leader>pp
+" unmap <leader>pp
 " unmap app <leader>b commands
-unmap <leader>bp
-unmap <leader>bn
-unmap <leader>bd
+" unmap <leader>bp
+" unmap <leader>bn
+" unmap <leader>bd
 
 
 map <leader>p :CtrlP<CR>
