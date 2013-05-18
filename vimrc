@@ -1,6 +1,8 @@
 "Bundle 'flazz/vim-colorschemes'
 "Bundle 'pangloss/vim-erlang'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'ervandew/supertab'
+"Bundle 'astashov/vim-ruby-debugger'
 
 set modelines=0
 
@@ -89,15 +91,18 @@ if has("gui_running")
     set noerrorbells visualbell t_vb=
     autocmd GUIEnter * set visualbell t_vb=
   endif
+  set guioptions-=m
   colorscheme molokai
   color molokai
+  colorscheme solarized
+  color solarized
   "set background=light
   set background=dark
 else
   " colorscheme badwolf
   " color badwolf
-  colorscheme atom
-  color atom
+  colorscheme molokai
+  color molokai
   set background=dark
 endif
 map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
@@ -187,3 +192,22 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " folding for ruby
 au FileType ruby setlocal foldmethod=syntax
+
+
+" vimgutter blinks...
+let g:gitgutter_eager = 0
+
+
+" ruby_debugger
+"let g:ruby_debugger_no_maps = 1
+"noremap <leader>rb :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.toggle_breakpoint()<CR>
+"noremap <leader>rv :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.open_variables()<CR>
+"noremap <leader>rm :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.open_breakpoints()<CR>
+"noremap <leader>rt :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.open_frames()<CR>
+"noremap <leader>rs :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.step()<CR>
+"noremap <leader>rf :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.finish()<CR>
+"noremap <leader>rn :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.next()<CR>
+"noremap <leader>rc :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.continue()<CR>
+"noremap <leader>re :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.exit()<CR>
+"noremap <leader>rd :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.remove_breakpoints()<CR>
+
