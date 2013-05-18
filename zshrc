@@ -56,3 +56,6 @@ touchrd(){
 # allow pressing ctrl+s (do not block terminal)
 stty -ixon
 
+# do not do autocorrection
+unsetopt correct_all
+unsetopt correct
