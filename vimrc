@@ -160,16 +160,21 @@ map <D-/> :call NERDComment(0, "invert")<cr>
 
 " unmap <leader>po (paste from OS)
 " unmap <leader>po
-" unmap all <leader>p commands
 unmap <leader>p
-" unmap <leader>pp
-" unmap app <leader>b commands
-" unmap <leader>bp
-" unmap <leader>bn
-" unmap <leader>bd
+if has("mac") || has("macunix")
+  " unmap all <leader>p commands
+  unmap <leader>po
+  unmap <leader>pp
+  " unmap app <leader>b commands
+  unmap <leader>bp
+  unmap <leader>bn
+  unmap <leader>bd
+  unmap <leader>ll
+endif
 
 
 map <leader>p :CtrlP<CR>
+map <leader>l :EasyBufferToggle<CR>
 
 
 " Y should behave like desired
@@ -210,4 +215,3 @@ let g:gitgutter_eager = 0
 "noremap <leader>rc :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.continue()<CR>
 "noremap <leader>re :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.exit()<CR>
 "noremap <leader>rd :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.remove_breakpoints()<CR>
-
