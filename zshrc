@@ -53,6 +53,10 @@ touchrd(){
   touchr
 }
 
+restart_cinnamon(){
+  export DISPLAY=:0.0 && cinnamon --replace
+}
+
 # allow pressing ctrl+s (do not block terminal)
 stty -ixon
 
