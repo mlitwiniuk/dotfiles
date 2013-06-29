@@ -202,6 +202,9 @@ au FileType ruby setlocal foldmethod=syntax
 " vimgutter blinks...
 let g:gitgutter_eager = 0
 
+" remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
 
 " ruby_debugger
 "let g:ruby_debugger_no_maps = 1
