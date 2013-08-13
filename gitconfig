@@ -3,7 +3,6 @@
   email = maciej@litwiniuk.net
 [core]
   editor = vim -f
-  excludesfile = /Users/maciej/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -22,7 +21,7 @@
   changed = yellow
   untracked = red
 [core]
-  excludesfile = $HOME/.gitignore
+	excludesfile = /Users/maciej/.gitignore_global
   pager = less -FRSX
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [alias]
