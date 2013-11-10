@@ -1,10 +1,124 @@
-"Bundle 'flazz/vim-colorschemes'
-"Bundle 'pangloss/vim-erlang'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'ervandew/supertab'
-"Bundle 'astashov/vim-ruby-debugger'
-Bundle "mhinz/vim-startify"
+" be iMproved
+set nocompatible
 
+" disable file type detection
+filetype off
+
+" extent runtimepath (rpt==runtimepath)
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+""
+"" CORE
+""
+Bundle 'gmarik/vundle'
+" vundle uses git:// instead of https:// when building full path
+let g:vundle_default_git_proto = 'git'
+
+Bundle 'mileszs/ack.vim'
+"use the silver searcher instead of ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" wisely add 'end' in ruby, endfunction/endif/more in vim script, etc
+Bundle 'tpope/vim-endwise'
+
+" quoting/parenthesizing made simple
+Bundle 'tpope/vim-surround'
+
+" A tree explorer plugin for vim.
+Bundle 'scrooloose/nerdtree'
+map <leader>n :NERDTreeToggle<CR>
+
+" Fuzzy file, buffer, mru, tag, etc finder.
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|CVS$\|\.svn$\|target$',
+  \ 'file': '\.class$\|\.so$',
+  \ }
+let g:ctrlp_extensions = ['dir', 'mixed']
+let g:ctrlp_max_files = 2000
+let g:ctrlp_max_depth = 10
+
+" vim plugin to quickly switch between buffers
+Bundle 'troydm/easybuffer.vim'
+
+" Syntax checking hacks for vim
+Bundle 'scrooloose/syntastic'
+
+" A fancy start screen for Vim.
+Bundle 'mhinz/vim-startify'
+
+" Perform all your vim insert mode completions with Tab
+Bundle 'ervandew/supertab'
+
+Bundle 'scrooloose/nerdcommenter'
+
+" required by vim-textobj-rubyblock
+Bundle 'kana/vim-textobj-user'
+
+""
+"" GIT
+""
+Bundle 'tpope/vim-fugitive'
+Bundle 'sjl/splice.vim'
+Bundle 'airblade/vim-gitgutter'
+let g:gitgutter_eager = 0 "run gitgutter only on file read & save
+
+""
+"" RUBY
+""
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'ecomba/vim-ruby-refactoring'
+
+
+""
+"" HAML
+""
+Bundle 'tpope/vim-haml'
+
+""
+"" COFFEESCRIPT
+""
+Bundle 'kchmck/vim-coffee-script'
+
+""
+"" VISUALS
+""
+Bundle 'w0ng/vim-hybrid'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'tomasr/molokai'
+
+Bundle 'bling/vim-airline'
+" enable airline
+let g:airline#extensions#tabline#enabled = 1
+
+
+"" After all bundles
+filetype plugin indent on
+
+""
+"" CORE SETTINGS
+""
+" change the terminal's title
+set title
+" Disable (visual) bell
+set visualbell
+set noerrorbells
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+" there are other tools for making backups
+set nobackup
+set noswapfile
+
+if has("gui_running")
+  " no reason not to use mouse
+  set mouse=a
+end
 
 set modelines=0
 
@@ -16,13 +130,37 @@ set expandtab
 set relativenumber
 set numberwidth=4
 
-let mapleader = ","
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=85
 
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+set showmatch     " set show matching parenthesis
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase,
+                  "    case-sensitive otherwise
 
-" nnoremap <esc> :noh<return><esc>
-nnoremap <silent> <C-l> :noh<CR><C-l>
+set list
+set listchars=tab:▸\ ,eol:¬
 
-" toggle between relative and absolute line numbers
+set pastetoggle=<F2>
+
+" disable F1
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" save when focus is lost
+au FocusLost * :wa
+
+" split window vertically and focus new one
+nnoremap <leader>w <C-w>v<C-w>l
+
+" add some files to ignored
+set wildignore+=*.o,*.obj,.git,vendor,*.log,tmp,*~,.sass-cache,*.png,*.jpg,*.gif,public
+
 function! g:ToggleNuMode()
   if(&rnu == 1)
     set nu
@@ -32,24 +170,30 @@ function! g:ToggleNuMode()
 endfunc
 nnoremap <f4> :call g:ToggleNuMode()<cr>
 
+autocmd BufWritePre * :%s/\s\+$//e
 
-set wrap
-set textwidth=79
-" set formatoptions=qrn1
-set colorcolumn=85
+set foldlevelstart=0
+set foldmethod=syntax
+au FileType ruby setlocal foldmethod=syntax
 
-set list
-set listchars=tab:▸\ ,eol:¬
+" Space to toggle folds.
+nnoremap <space> za
+vnoremap <space> za
+"
+" Make zO recursively open whatever top level fold we're in, no matter where
+" the cursor happens to be.
+nnoremap zO zCzO
 
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
+""
+"" CUSTOMIZATIONS
+""
+" set <leader>
+let mapleader=","
 
-au FocusLost * :wa
+map <leader>r :so %<CR> " reload vim config - just for now
+map <leader>bu :BundleInstall<CR>
 
-nnoremap <leader>w <C-w>v<C-w>l
-
-
+" switching between windows
 nnoremap H <C-w>h
 nnoremap L <C-w>l
 nnoremap <C-j> <C-w>j
@@ -57,165 +201,55 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-
-
-set wildignore+=*.o,*.obj,.git,vendor,*.log,tmp,*~,.sass-cache,*.png,*.jpg,*.gif,public
-
-
-map   <silent> <F5> mmgg=G'm
-imap  <silent> <F5> <Esc> mmgg=G'm
-
-vnoremap < <gv
-vnoremap > >gv
-
-
-
-" vim conque plugin
-let g:ruby_conque_rspec_command='bundle exec rspec'
-
-" theme // appearance
-if has("gui_running")
-  if has("mac") || has("macunix")
-    "set guifont=Menlo\ Regular:h11
-    "set guifont=Source\ Code\ Pro\ Light:h10
-    "set guifont=Inconsolata-g:h9.5
-    set guifont=Anonymous\ Pro:h11
-  else
-    "set guifont=Monaco\ for\ Powerline\ 8
-    "set guifont=Meslo\ LG\ S\ 9
-    "set guifont=Consolas\ 10
-    set guifont=Menlo\ for\ Powerline\ 9
-    " COPY / PASTE IN LINUX
-    "nmap <C-V> "+gP
-    nmap <C-V> "+p
-    imap <C-V> <ESC><C-V>a
-    vmap <C-C> "+y
-    " Disable visual bell
-    set noerrorbells visualbell t_vb=
-    autocmd GUIEnter * set visualbell t_vb=
-  endif
-  set guioptions-=m
-  colorscheme Tomorrow-Night-Eighties
-  color Tomorrow-Night-Eighties
-  "set background=light
-  set background=dark
-else
-  " colorscheme badwolf
-  " color badwolf
-  colorscheme Tomorrow-Night-Eighties
-  color Tomorrow-Night-Eighties
-  set background=dark
-endif
-"map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-
-
-" ctrlp plugin config
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.sass-cache$|\-svn$|vendor$\|system$\|uploads$\|\.jpg$\|\.png$\|public$'
-let g:ctrlp_max_files = 2000
-let g:ctrlp_max_depth = 10
-
-" Additional mapping for buffer search
-nnoremap ,b :CtrlPBuffer<CR>
-"nnoremap <C-b> :CtrlPBuffer<cr>
-
-" Cmd-Shift-P to clear the cache
-nnoremap <silent> <D-P> :ClearCtrlPCache<CR>
-
-
-" Idea from : http://www.charlietanksley.net/blog/blog/2011/10/18/vim-navigation-with-lustyexplorer-and-lustyjuggler/
-" Open CtrlP starting from a particular path, making it much
-" more likely to find the correct thing first. mnemonic 'jump to [something]'
-map ,jm :CtrlP app/models<CR>
-map ,jc :CtrlP app/controllers<CR>
-map ,jv :CtrlP app/views<CR>
-map ,jh :CtrlP app/helpers<CR>
-map ,jl :CtrlP lib<CR>
-map ,ja :CtrlP app/assets<CR>
-map ,jp :CtrlP public<CR>
-map ,js :CtrlP spec<CR>
-map ,jf :CtrlP fast_spec<CR>
-map ,jd :CtrlP db<CR>
-map ,jC :CtrlP config<CR>
-map ,jV :CtrlP vendor<CR>
-map ,jF :CtrlP factories<CR>
-map ,jT :CtrlP test<CR>
-
-"Cmd-(m)ethod - jump to a method (tag in current file)
-map ,m :CtrlPBufTag<CR>
-
-"Ctrl-(M)ethod - jump to a method (tag in all files)
-map ,M :CtrlPBufTagAll<CR>
-
-" Clear search results
+" clear search result highlight
 noremap <silent>// :nohls<CR>
 
-" NERDTree
-unmap <C-u>
-nnoremap <C-n> :NERDTreeToggle<CR>
+map <leader>p :CtrlP<CR>
+noremap <leader>b :CtrlPBuffer<CR>
+" Rails pecific mappings
+map <leader>jm :CtrlP app/models<CR>
+map <leader>jc :CtrlP app/controllers<CR>
+map <leader>jv :CtrlP app/views<CR>
+map <leader>jh :CtrlP app/helpers<CR>
+map <leader>jl :CtrlP lib<CR>
+map <leader>ja :CtrlP app/assets<CR>
+map <leader>jp :CtrlP public<CR>
+map <leader>js :CtrlP spec<CR>
+map <leader>jf :CtrlP fast_spec<CR>
+map <leader>jd :CtrlP db<CR>
+map <leader>jC :CtrlP config<CR>
+map <leader>jV :CtrlP vendor<CR>
+map <leader>jF :CtrlP factories<CR>
+map <leader>jT :CtrlP test<CR>
 
-" Nerd commenter
+map <leader>l :EasyBufferToggle<CR>
+
+" nerdcommenter
 map <leader>/ :call NERDComment(0, "invert")<cr>
 nmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <leader>/ :call NERDComment(0, "invert")<cr>
 map <D-/> :call NERDComment(0, "invert")<cr>
 
-" unmap <leader>po (paste from OS)
-" unmap <leader>po
-unmap <leader>p
-if has("mac") || has("macunix")
-  " unmap all <leader>p commands
-  unmap <leader>po
-  unmap <leader>pp
-  " unmap app <leader>b commands
-  unmap <leader>bp
-  unmap <leader>bn
-  unmap <leader>bd
-  unmap <leader>ll
+" disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+""
+"" LOOK AND FEEL
+""
+syntax enable
+set background=dark
+colorscheme hybrid
+" always display airline (no split needed)
+set laststatus=2
+let g:airline_powerline_fonts = 0
+
+if has("gui_running")
+  if has("mac") || has("macunix")
+    set guifont=Anonymous\ Pro:h11
+  endif
 endif
 
 
-map <leader>p :CtrlP<CR>
-map <leader>l :EasyBufferToggle<CR>
-
-
-" Y should behave like desired
-unmap Y
-
-" saves for vim / gvim
-nmap <c-s> :w<CR>
-imap <c-s> <Esc>:w<CR>a
-
-let g:yankring_history_dir = '~/.vim/tmp'
-let g:yankring_enabled = 0
-autocmd VimEnter * let g:yankring_history_dir = '~/.vim/tmp'
-
-
-"let g:ctrlp_user_command = 'mdfind -onlyin %s file'
-
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
-
-
-" folding for ruby
-au FileType ruby setlocal foldmethod=syntax
-
-
-" vimgutter blinks...
-let g:gitgutter_eager = 0
-
-" remove trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
-
-
-" ruby_debugger
-"let g:ruby_debugger_no_maps = 1
-"noremap <leader>rb :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.toggle_breakpoint()<CR>
-"noremap <leader>rv :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.open_variables()<CR>
-"noremap <leader>rm :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.open_breakpoints()<CR>
-"noremap <leader>rt :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.open_frames()<CR>
-"noremap <leader>rs :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.step()<CR>
-"noremap <leader>rf :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.finish()<CR>
-"noremap <leader>rn :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.next()<CR>
-"noremap <leader>rc :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.continue()<CR>
-"noremap <leader>re :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.exit()<CR>
-"noremap <leader>rd :call ruby_debugger#load_debugger() <bar> call g:RubyDebugger.remove_breakpoints()<CR>
