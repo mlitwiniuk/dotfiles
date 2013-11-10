@@ -3,6 +3,8 @@
 Bundle 'airblade/vim-gitgutter'
 Bundle 'ervandew/supertab'
 "Bundle 'astashov/vim-ruby-debugger'
+Bundle "mhinz/vim-startify"
+
 
 set modelines=0
 
@@ -75,8 +77,9 @@ let g:ruby_conque_rspec_command='bundle exec rspec'
 if has("gui_running")
   if has("mac") || has("macunix")
     "set guifont=Menlo\ Regular:h11
-    set guifont=Source\ Code\ Pro\ Light:h10
+    "set guifont=Source\ Code\ Pro\ Light:h10
     "set guifont=Inconsolata-g:h9.5
+    set guifont=Anonymous\ Pro:h11
   else
     "set guifont=Monaco\ for\ Powerline\ 8
     "set guifont=Meslo\ LG\ S\ 9
@@ -92,20 +95,18 @@ if has("gui_running")
     autocmd GUIEnter * set visualbell t_vb=
   endif
   set guioptions-=m
-  colorscheme molokai
-  color molokai
-  colorscheme solarized
-  color solarized
+  colorscheme Tomorrow-Night-Eighties
+  color Tomorrow-Night-Eighties
   "set background=light
   set background=dark
 else
   " colorscheme badwolf
   " color badwolf
-  colorscheme molokai
-  color molokai
+  colorscheme Tomorrow-Night-Eighties
+  color Tomorrow-Night-Eighties
   set background=dark
 endif
-map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+"map <F6> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 
 " ctrlp plugin config

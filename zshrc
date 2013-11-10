@@ -2,7 +2,7 @@
 ZSH_THEME="af-magic"
 PATH="/usr/local/lib/node_modules:$PATH"
 source ~/.prograils_env
-source ~/.galdomedia_env
+#source ~/.galdomedia_env
 
 r4(){
   #rvm use 2.0@rails40
@@ -63,3 +63,19 @@ stty -ixon
 # do not do autocorrection
 unsetopt correct_all
 unsetopt correct
+
+
+# ctrl-p ctrl-n history navigation
+bindkey '^P' up-history
+bindkey '^N' down-history
+
+# backspace and ^h working even after returning from command mode
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+
+# ctrl-w removed word backwards
+bindkey '^w' backward-kill-word
+
+# ctrl-r starts searching history backward
+bindkey '^r' history-incremental-search-backward
+
