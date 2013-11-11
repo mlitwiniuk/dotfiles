@@ -189,7 +189,8 @@ nnoremap zO zCzO
 let mapleader=","
 
 map <leader>r :so %<CR> " reload vim config - just for now
-map <leader>bu :BundleInstall<CR>
+" needed only while editing new vimrv
+"map <leader>bu :BundleInstall<CR>
 
 " switching between windows
 nnoremap H <C-w>h
