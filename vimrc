@@ -201,6 +201,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" split window vertically and focus new one
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>s <C-w>s<C-w>j
+
 " clear search result highlight
 noremap <silent>// :nohls<CR>
 
