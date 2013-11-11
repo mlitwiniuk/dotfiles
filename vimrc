@@ -155,9 +155,6 @@ vnoremap <F1> <ESC>
 " save when focus is lost
 au FocusLost * :wa
 
-" split window vertically and focus new one
-nnoremap <leader>w <C-w>v<C-w>l
-
 " add some files to ignored
 set wildignore+=*.o,*.obj,.git,vendor,*.log,tmp,*~,.sass-cache,*.png,*.jpg,*.gif,public
 
