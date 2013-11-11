@@ -104,6 +104,8 @@ filetype plugin indent on
 ""
 "" CORE SETTINGS
 ""
+set encoding=utf-8
+
 " change the terminal's title
 set title
 " Disable (visual) bell
@@ -247,11 +249,16 @@ set background=dark
 colorscheme hybrid
 " always display airline (no split needed)
 set laststatus=2
-let g:airline_powerline_fonts = 0
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 
 if has("gui_running")
   if has("mac") || has("macunix")
-    set guifont=Anonymous\ Pro:h11
+    set guifont=Anonymice\ Powerline:h11
+    " disable scrollbars
+    set guioptions-=L
   endif
 endif
 
