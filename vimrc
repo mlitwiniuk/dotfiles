@@ -28,6 +28,7 @@ Bundle 'tpope/vim-surround'
 " A tree explorer plugin for vim.
 Bundle 'scrooloose/nerdtree'
 map <leader>n :NERDTreeToggle<CR>
+autocmd vimenter * if !argc() | NERDTree | endif
 
 " Fuzzy file, buffer, mru, tag, etc finder.
 Bundle 'kien/ctrlp.vim'
