@@ -4,7 +4,7 @@ set nocompatible
 " disable file type detection
 filetype off
 
-" extent runtimepath (rpt==runtimepath)
+" extend runtime path (rpt==runtimepath)
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
