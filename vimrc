@@ -27,7 +27,6 @@ Bundle 'tpope/vim-surround'
 
 " A tree explorer plugin for vim.
 Bundle 'scrooloose/nerdtree'
-map <leader>n :NERDTreeToggle<CR>
 autocmd vimenter * if !argc() | NERDTree | endif
 
 " Fuzzy file, buffer, mru, tag, etc finder.
@@ -209,7 +208,12 @@ nnoremap <leader>s <C-w>s<C-w>j
 " clear search result highlight
 noremap <silent>// :nohls<CR>
 
-map <leader>p :CtrlP<CR>
+" show NERDTree
+noremap <leader>n :NERDTreeToggle<CR>
+
+" show CtrlP menu
+noremap <leader>p :CtrlP<CR>
+" show CtrlP menu for buffer
 noremap <leader>b :CtrlPBuffer<CR>
 " Rails pecific mappings
 map <leader>jm :CtrlP app/models<CR>
