@@ -13,7 +13,7 @@ r3(){
 }
 r32(){
   cd ~/Sites/r32/
-  rbenv local 1.9.3-p448
+  rbenv local 1.9.3-p484
 }
 r4(){
   cd ~/Sites/r4/
