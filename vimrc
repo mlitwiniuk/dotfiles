@@ -147,6 +147,9 @@ set smartcase     " ignore case if search pattern is all lowercase,
 set list
 set listchars=tab:▸\ ,eol:¬
 
+" hide buffer, do not abbandon it
+set hidden
+
 set pastetoggle=<F2>
 
 " disable F1
