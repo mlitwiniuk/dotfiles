@@ -17,7 +17,7 @@ r32(){
 }
 r4(){
   cd ~/Sites/r4/
-  rbenv local 2.0.0-p247
+  rbenv local 2.0.0-p353
 }
 
 
