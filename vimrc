@@ -69,9 +69,12 @@ let g:gitgutter_eager = 0 "run gitgutter only on file read & save
 "" RUBY
 ""
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-rails'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'ecomba/vim-ruby-refactoring'
+" A vim plugin for running your Ruby tests
+Bundle 'skalnik/vim-vroom'
 
 
 ""
@@ -83,6 +86,12 @@ Bundle 'tpope/vim-haml'
 "" COFFEESCRIPT
 ""
 Bundle 'kchmck/vim-coffee-script'
+
+
+""
+"" MARKDOWN
+""
+Bundle 'tpope/vim-markdown'
 
 ""
 "" VISUALS
@@ -129,6 +138,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+set number
 set relativenumber
 set numberwidth=4
 
@@ -263,10 +273,14 @@ let g:airline#extensions#tabline#enabled = 0
 
 if has("gui_running")
   if has("mac") || has("macunix")
-    set guifont=Anonymice\ Powerline:h11
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h11
     " disable scrollbars
     set guioptions-=L
   endif
 endif
+
+"" Save folds
+au BufWinLeave * silent! mkview
+au BufWinEnter * silent! loadview
 
 
