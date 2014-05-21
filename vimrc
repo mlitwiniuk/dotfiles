@@ -31,6 +31,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 
 " Fuzzy file, buffer, mru, tag, etc finder.
 Bundle 'kien/ctrlp.vim'
+
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|CVS$\|\.svn$\|target$',
@@ -116,6 +117,10 @@ Bundle 'bling/vim-airline'
 " enable airline
 let g:airline#extensions#tabline#enabled = 1
 
+""
+"" OTHERS
+""
+Bundle 'farseer90718/vim-taskwarrior'
 
 "" After all bundles
 filetype plugin indent on
@@ -171,12 +176,19 @@ set listchars=tab:▸\ ,eol:¬
 " hide buffer, do not abbandon it
 set hidden
 
-set pastetoggle=<F2>
-
 " disable F1
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+" F2 saves files
+inoremap <F2> <C-O>:update<CR>
+nnoremap <F2> :w<CR>
+
+" F3 changes paste mode
+set pastetoggle=<F3>
+
+" F4 remapped few lines lower
 
 " save when focus is lost
 au FocusLost * :wa
@@ -213,7 +225,7 @@ nnoremap zO zCzO
 " set <leader>
 let mapleader=","
 
-map <leader>r :so %<CR> " reload vim config - just for now
+"map <leader>r :so %<CR> " reload vim config
 " needed only while editing new vimrv
 "map <leader>bu :BundleInstall<CR>
 
