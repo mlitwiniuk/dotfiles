@@ -5,33 +5,32 @@ set nocompatible
 filetype off
 
 " extend runtime path (rpt==runtimepath)
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 ""
 "" CORE
 ""
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 " vundle uses git:// instead of https:// when building full path
 let g:vundle_default_git_proto = 'git'
 
-Bundle 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 "use the silver searcher instead of ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " wisely add 'end' in ruby, endfunction/endif/more in vim script, etc
-Bundle 'tpope/vim-endwise'
+Plugin 'tpope/vim-endwise'
 
 " quoting/parenthesizing made simple
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 " A tree explorer plugin for vim.
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 autocmd vimenter * if !argc() | NERDTree | endif
 
 " Fuzzy file, buffer, mru, tag, etc finder.
-Bundle 'kien/ctrlp.vim'
-
+Plugin 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|CVS$\|\.svn$\|target$',
@@ -42,40 +41,40 @@ let g:ctrlp_max_files = 2000
 let g:ctrlp_max_depth = 10
 
 " vim plugin to quickly switch between buffers
-Bundle 'troydm/easybuffer.vim'
+Plugin 'troydm/easybuffer.vim'
 
 " Syntax checking hacks for vim
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 " A fancy start screen for Vim.
-Bundle 'mhinz/vim-startify'
+Plugin 'mhinz/vim-startify'
 
 " Perform all your vim insert mode completions with Tab
-Bundle 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 
 " required by vim-textobj-rubyblock
-Bundle 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-user'
 
 ""
 "" GIT
 ""
-Bundle 'tpope/vim-fugitive'
-Bundle 'sjl/splice.vim'
-Bundle 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'sjl/splice.vim'
+Plugin 'airblade/vim-gitgutter'
 let g:gitgutter_eager = 0 "run gitgutter only on file read & save
 
 ""
 "" RUBY
 ""
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rbenv'
-Bundle 'tpope/vim-rails'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'ecomba/vim-ruby-refactoring'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rbenv'
+Plugin 'tpope/vim-rails'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'ecomba/vim-ruby-refactoring'
 " A vim plugin for running your Ruby tests
-Bundle 'skalnik/vim-vroom'
+Plugin 'skalnik/vim-vroom'
 
 
 ""
@@ -92,28 +91,28 @@ au FileType go nmap <leader>t <Plug>(go-test)
 ""
 "" HAML
 ""
-Bundle 'tpope/vim-haml'
+Plugin 'tpope/vim-haml'
 
 ""
 "" COFFEESCRIPT
 ""
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'kchmck/vim-coffee-script'
 
 
 ""
 "" MARKDOWN
 ""
-Bundle 'tpope/vim-markdown'
+Plugin 'tpope/vim-markdown'
 
 ""
 "" VISUALS
 ""
-Bundle 'w0ng/vim-hybrid'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'tomasr/molokai'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'tomasr/molokai'
 
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 " enable airline
 let g:airline#extensions#tabline#enabled = 1
 
@@ -227,7 +226,7 @@ let mapleader=","
 
 "map <leader>r :so %<CR> " reload vim config
 " needed only while editing new vimrv
-"map <leader>bu :BundleInstall<CR>
+"map <leader>bu :PluginInstall<CR>
 
 " switching between windows
 nnoremap H <C-w>h
