@@ -11,7 +11,7 @@ call vundle#begin()
 ""
 "" CORE
 ""
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 " vundle uses git:// instead of https:// when building full path
 let g:vundle_default_git_proto = 'git'
 
@@ -122,6 +122,7 @@ let g:airline#extensions#tabline#enabled = 1
 Bundle 'farseer90718/vim-taskwarrior'
 
 "" After all bundles
+call vundle#end()
 filetype plugin indent on
 
 ""
@@ -192,6 +193,10 @@ set pastetoggle=<F3>
 " save when focus is lost
 au FocusLost * :wa
 
+" Ctrl+s saves as well
+inoremap <C-S> <C-O>:update<CR>
+nnoremap <C-S> :w<CR>
+
 " add some files to ignored
 set wildignore+=*.o,*.obj,.git,vendor,*.log,tmp,*~,.sass-cache,*.png,*.jpg,*.gif,public
 
@@ -224,7 +229,7 @@ nnoremap zO zCzO
 " set <leader>
 let mapleader=","
 
-"map <leader>r :so %<CR> " reload vim config
+map <leader>r :so %<CR> " reload vim config
 " needed only while editing new vimrv
 "map <leader>bu :PluginInstall<CR>
 
