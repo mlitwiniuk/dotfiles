@@ -197,6 +197,9 @@ au FocusLost * :wa
 inoremap <C-S> <C-O>:update<CR>
 nnoremap <C-S> :w<CR>
 
+" Ctrl+q enables visual mode
+noremap <C-Q> <C-V>
+
 " add some files to ignored
 set wildignore+=*.o,*.obj,.git,vendor,*.log,tmp,*~,.sass-cache,*.png,*.jpg,*.gif,public
 
