@@ -111,6 +111,7 @@ Plugin 'w0ng/vim-hybrid'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'tomasr/molokai'
+Plugin 'noahfrederick/vim-hemisu'
 
 Plugin 'bling/vim-airline'
 " enable airline
@@ -210,7 +211,7 @@ function! g:ToggleNuMode()
     set rnu
   endif
 endfunc
-nnoremap <f4> :call g:ToggleNuMode()<cr>
+nnoremap <F4> :call g:ToggleNuMode()<cr>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -232,7 +233,7 @@ nnoremap zO zCzO
 " set <leader>
 let mapleader=","
 
-map <leader>r :so %<CR> " reload vim config
+map <leader>r :so %<CR> " reload opened vim config
 " needed only while editing new vimrv
 "map <leader>bu :PluginInstall<CR>
 
@@ -293,7 +294,7 @@ map <right> <nop>
 ""
 syntax enable
 set background=dark
-colorscheme hybrid
+colorscheme hemisu
 " always display airline (no split needed)
 set laststatus=2
 " airline
