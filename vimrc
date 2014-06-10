@@ -120,7 +120,6 @@ let g:airline#extensions#tabline#enabled = 1
 ""
 "" OTHERS
 ""
-Bundle 'farseer90718/vim-taskwarrior'
 
 "" After all bundles
 call vundle#end()
