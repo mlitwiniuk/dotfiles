@@ -45,6 +45,7 @@ Plugin 'troydm/easybuffer.vim'
 
 " Syntax checking hacks for vim
 Plugin 'scrooloose/syntastic'
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " A fancy start screen for Vim.
 Plugin 'mhinz/vim-startify'
