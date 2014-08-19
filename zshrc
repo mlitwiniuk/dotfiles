@@ -19,6 +19,10 @@ r4(){
   cd ~/Sites/r4/
   rbenv local 2.1.2
 }
+jr(){
+  cd ~/Sites/jr/
+  rbenv local jruby-1.7.12
+}
 
 
 touchr(){
