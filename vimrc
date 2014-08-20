@@ -162,7 +162,7 @@ set numberwidth=4
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+set colorcolumn=81
 
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
