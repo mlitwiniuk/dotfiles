@@ -234,7 +234,7 @@ nnoremap zO zCzO
 " set <leader>
 let mapleader=","
 
-map <leader>r :so %<CR> " reload opened vim config
+"map <leader>r :so %<CR> " reload opened vim config
 " needed only while editing new vimrv
 "map <leader>bu :PluginInstall<CR>
 
@@ -283,6 +283,10 @@ map <leader>/ :call NERDComment(0, "invert")<cr>
 nmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <leader>/ :call NERDComment(0, "invert")<cr>
 map <D-/> :call NERDComment(0, "invert")<cr>
+
+" vroom config
+let g:vroom_use_spring = 1
+let g:vroom_test_unit_command = 'testunit'
 
 " disable arrow keys
 map <up> <nop>
