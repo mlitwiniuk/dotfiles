@@ -119,6 +119,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'tomasr/molokai'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'cocopon/iceberg.vim'
+Plugin 'mlitwiniuk/vim-abra'
 
 Plugin 'bling/vim-airline'
 " enable airline
@@ -304,7 +305,7 @@ map <right> <nop>
 ""
 syntax enable
 set background=dark
-colorscheme iceberg
+colorscheme abra
 " always display airline (no split needed)
 set laststatus=2
 " airline
