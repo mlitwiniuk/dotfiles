@@ -17,7 +17,7 @@ r32(){
 }
 r4(){
   cd ~/Sites/r4/
-  rbenv local 2.1.2
+  rbenv local 2.1.3
 }
 jr(){
   cd ~/Sites/jr/
