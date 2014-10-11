@@ -76,6 +76,7 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'ecomba/vim-ruby-refactoring'
 " A vim plugin for running your Ruby tests
 Plugin 'skalnik/vim-vroom'
+Plugin 'briancollins/vim-jst'
 
 
 ""
@@ -99,6 +100,10 @@ Plugin 'tpope/vim-haml'
 ""
 Plugin 'kchmck/vim-coffee-script'
 
+""
+"" CSS
+""
+Plugin 'groenewege/vim-less'
 
 ""
 "" MARKDOWN
