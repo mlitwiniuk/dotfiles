@@ -131,6 +131,8 @@ Plugin 'tomasr/molokai'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'cocopon/iceberg.vim'
 Plugin 'mlitwiniuk/vim-abra'
+Plugin 'nice/sweater'
+Plugin 'freeo/vim-kalisi'
 
 Plugin 'bling/vim-airline'
 " enable airline
