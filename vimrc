@@ -137,8 +137,11 @@ Plugin 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
 ""
-"" OTHERS
+"" TMUX
 ""
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'benmills/vimux'
+Plugin 'sjl/vitality.vim'
 
 "" After all bundles
 call vundle#end()
