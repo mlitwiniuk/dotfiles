@@ -200,6 +200,9 @@ set listchars=tab:▸\ ,eol:¬
 " hide buffer, do not abbandon it
 set hidden
 
+" jj returns to normal
+inoremap jj <ESC>
+
 " disable F1
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
