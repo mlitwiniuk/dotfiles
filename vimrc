@@ -4,6 +4,12 @@ set nocompatible
 " disable file type detection
 filetype off
 
+" make it 256 colors
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+  set t_Co=256
+endif
+
+
 " extend runtime path (rpt==runtimepath)
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
