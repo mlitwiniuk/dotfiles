@@ -266,10 +266,13 @@ let mapleader=","
 " switching between windows
 nnoremap H <C-w>h
 nnoremap L <C-w>l
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+nnoremap J <C-w>j
+nnoremap K <C-w>k
+" those are maintained by vim-tmux-navigator
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-l> <C-w>l
 
 " split window vertically and focus new one
 nnoremap <leader>v <C-w>v<C-w>l
