@@ -342,6 +342,8 @@ if has("gui_running")
     " disable scrollbars
     set guioptions-=L
   endif
+else
+  autocmd BufEnter * set relativenumber
 endif
 
 "" Save folds
