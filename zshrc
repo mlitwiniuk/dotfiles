@@ -3,6 +3,21 @@ PATH="/usr/local/lib/node_modules:$PATH"
 source ~/.prograils_env
 #source ~/.galdomedia_env
 
+## ALIASES
+alias v="vim"
+alias vi="echo use v!!"
+alias f="fg"
+alias l="ls"
+
+## TMUX
+alias tls="tmux ls"
+alias td="tmux detach"
+alias tnew="new-tmux-from-dir-name"
+alias tatt="tmux attach-session -t "
+
+alias topcmds='cat ~/.zhistory | cut -d ";" -f 2 | sed "s, .*,," | sort | uniq -c | sort -n | tail -rn 30'
+
+## Go to dir and set rbenv version
 r2(){
   cd ~/Sites/r2/
   rbenv local ree-1.8.7-2012.02
