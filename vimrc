@@ -16,8 +16,8 @@ Plugin 'gmarik/Vundle.vim'
 let g:vundle_default_git_proto = 'git'
 
 Plugin 'mileszs/ack.vim'
-"use the silver searcher instead of ack
-let g:ackprg = 'ag --nogroup --nocolor --column'
+"use the platinum searcher instead of ack
+let g:ackprg = 'pt --nogroup --nocolor'
 
 " wisely add 'end' in ruby, endfunction/endif/more in vim script, etc
 Plugin 'tpope/vim-endwise'
