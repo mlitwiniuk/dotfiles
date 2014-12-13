@@ -39,6 +39,11 @@ jr(){
   rbenv local jruby-1.7.12
 }
 
+function new-tmux-from-dir-name {
+  tmux new-session -As `basename $PWD`
+}
+
+
 
 touchr(){
   touch tmp/restart.txt
