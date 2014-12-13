@@ -73,6 +73,11 @@ Plugin 'airblade/vim-gitgutter'
 let g:gitgutter_eager = 0 "run gitgutter only on file read & save
 
 ""
+"" ELIXIR
+""
+Plugin 'elixir-lang/vim-elixir'
+
+""
 "" RUBY
 ""
 Plugin 'vim-ruby/vim-ruby'
