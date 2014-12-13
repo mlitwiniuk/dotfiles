@@ -215,7 +215,7 @@ nnoremap <F2> :w<CR>
 " F3 changes paste mode
 set pastetoggle=<F3>
 
-" F4 remapped few lines lower
+" F4 remapped few lines below
 
 " save when focus is lost
 au FocusLost * :wa
