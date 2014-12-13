@@ -327,13 +327,14 @@ map <right> <nop>
 ""
 syntax enable
 set background=dark
-colorscheme abra
+colorscheme kalisi
 " always display airline (no split needed)
 set laststatus=2
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#enabled = 0
+let g:airline_theme='kalisi'
 
 if has("gui_running")
   if has("mac") || has("macunix")
