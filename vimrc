@@ -9,6 +9,11 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
   set t_Co=256
 endif
 
+" Adjust keycode timeout length
+set ttimeoutlen=100
+
+" Let backspace behave... normally
+set backspace=2
 
 " extend runtime path (rpt==runtimepath)
 set rtp+=~/.vim/bundle/Vundle.vim/
