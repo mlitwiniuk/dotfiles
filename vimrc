@@ -46,8 +46,8 @@ autocmd vimenter * if !argc() | NERDTree | endif
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|CVS$\|\.svn$\|target$',
-  \ 'file': '\.class$\|\.so$',
+  \ 'dir': '\.git$\|\.sass-cache$|\.hg$\|\.svn$\|\.yardoc\|public$|log\|tmp$|vendor$|coverage$',
+  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
 let g:ctrlp_extensions = ['dir', 'mixed']
 let g:ctrlp_max_files = 2000
