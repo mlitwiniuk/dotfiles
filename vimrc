@@ -109,6 +109,12 @@ Plugin 'briancollins/vim-jst'
 "au FileType go nmap <leader>t <Plug>(go-test)
 
 ""
+"" RUST
+""
+Plugin 'wting/rust.vim'
+au FileType go nmap <leader>r <Plug>(RustRun)
+
+""
 "" HAML
 ""
 Plugin 'tpope/vim-haml'
