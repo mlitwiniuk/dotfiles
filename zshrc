@@ -4,6 +4,7 @@ source ~/.prograils_env
 #source ~/.galdomedia_env
 
 ## ALIASES
+# alias vim="mvim -v"
 alias v="vim"
 alias vi="echo use v!!"
 alias f="fg"
