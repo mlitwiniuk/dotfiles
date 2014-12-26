@@ -254,6 +254,9 @@ nnoremap <F4> :call g:ToggleNuMode()<cr>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
+" copy using clipper
+nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
+
 set foldlevelstart=0
 set foldmethod=syntax
 au FileType ruby setlocal foldmethod=syntax
