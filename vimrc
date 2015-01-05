@@ -100,12 +100,12 @@ Plugin 'briancollins/vim-jst'
 ""
 "" GO
 ""
-"Bundle 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 "au FileType go nmap <Leader>i <Plug>(go-info)
 "au FileType go nmap <Leader>gd <Plug>(go-doc)
 "au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-"au FileType go nmap <leader>r <Plug>(go-run)
-"au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
 "au FileType go nmap <leader>t <Plug>(go-test)
 
 ""
@@ -150,6 +150,8 @@ Plugin 'freeo/vim-kalisi'
 Plugin 'bling/vim-airline'
 " enable airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tmuxline#enabled = 1
 
 ""
 "" TMUX
@@ -241,7 +243,7 @@ nnoremap <C-S> :w<CR>
 noremap <C-Q> <C-V>
 
 " add some files to ignored
-set wildignore+=*.o,*.obj,.git,vendor,*.log,tmp,*~,.sass-cache,*.png,*.jpg,*.gif,public
+set wildignore+=*.o,*.obj,.git,vendor,*.log,tmp,*~,.sass-cache,*.png,*.jpg,*.gif,public,coverage
 
 function! g:ToggleNuMode()
   if(&rnu == 1)
