@@ -100,19 +100,19 @@ Plugin 'briancollins/vim-jst'
 ""
 "" GO
 ""
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 "au FileType go nmap <Leader>i <Plug>(go-info)
 "au FileType go nmap <Leader>gd <Plug>(go-doc)
 "au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
+"au FileType go nmap <leader>r <Plug>(go-run)
+"au FileType go nmap <leader>b <Plug>(go-build)
 "au FileType go nmap <leader>t <Plug>(go-test)
 
 ""
 "" RUST
 ""
-Plugin 'wting/rust.vim'
-au FileType go nmap <leader>r <Plug>(RustRun)
+"Plugin 'wting/rust.vim'
+"au FileType rust nmap <leader>r <Plug>(RustRun)
 
 ""
 "" HAML
