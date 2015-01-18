@@ -14,7 +14,7 @@ alias l="ls"
 alias tls="tmux ls"
 alias td="tmux detach"
 alias tnew="new-tmux-from-dir-name"
-alias tatt="tmux attach-session -t "
+alias tatt="tmux-att-from-dir-name"
 
 alias topcmds='cat ~/.zhistory | cut -d ";" -f 2 | sed "s, .*,," | sort | uniq -c | sort -n | tail -rn 30'
 
@@ -39,6 +39,15 @@ jr(){
   cd ~/Sites/jr/
   rbenv local jruby-1.7.12
 }
+
+function tmux-att-from-dir-name {
+  SESSION_NAME=$1
+  if [[ -z $SESSION_NAME ]]; then
+    SESSION_NAME=`basename $PWD`
+  fi
+  tmux attach-session -t $SESSION_NAME
+}
+
 
 function new-tmux-from-dir-name {
   tmux new-session -As `basename $PWD`
