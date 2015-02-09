@@ -7,8 +7,10 @@ filetype off
 " make it 256 colors
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
   set t_Co=256
-  let &t_8f="\e[38;2;%ld;%ld;%ldm"
-  let &t_8b="\e[48;2;%ld;%ld;%ldm"
+  if exists("&t_8f")
+    let &t_8f="\e[38;2;%ld;%ld;%ldm"
+    let &t_8b="\e[48;2;%ld;%ld;%ldm"
+  endif
 endif
 
 " Adjust keycode timeout length
