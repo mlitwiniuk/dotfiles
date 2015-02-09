@@ -65,11 +65,22 @@ Plugin 'mhinz/vim-startify'
 
 " Perform all your vim insert mode completions with Tab
 Plugin 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 Plugin 'scrooloose/nerdcommenter'
 
 " required by vim-textobj-rubyblock
 Plugin 'kana/vim-textobj-user'
+
+" Snippets
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 ""
 "" GIT
