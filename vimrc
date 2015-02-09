@@ -366,7 +366,7 @@ map <right> <nop>
 ""
 syntax enable
 set background=dark
-colorscheme kalisi
+colorscheme hybrid
 " always display airline (no split needed)
 set laststatus=2
 " airline
