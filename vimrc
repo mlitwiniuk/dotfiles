@@ -55,6 +55,14 @@ let g:ctrlp_extensions = ['dir', 'mixed']
 let g:ctrlp_max_files = 2000
 let g:ctrlp_max_depth = 10
 
+" PyMatcher for CtrlP
+Plugin 'FelikZ/ctrlp-py-matcher'
+if !has('python')
+  echo 'In order to use pymatcher plugin, you need +python compiled vim'
+else
+  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
+
 " vim plugin to quickly switch between buffers
 Plugin 'troydm/easybuffer.vim'
 
