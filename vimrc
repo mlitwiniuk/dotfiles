@@ -368,4 +368,8 @@ endif
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
 
+"" Thyme
+nmap <leader>t :silent !thyme -d<cr>
+
+
 
