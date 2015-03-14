@@ -43,7 +43,7 @@ let g:vundle_default_git_proto = 'git'
 
 Plugin 'mileszs/ack.vim'
 "use the platinum searcher instead of ack
-let g:ackprg = 'pt --nogroup --nocolor'
+let g:ackprg = 'ag --vimgrep'
 
 " wisely add 'end' in ruby, endfunction/endif/more in vim script, etc
 Plugin 'tpope/vim-endwise'
