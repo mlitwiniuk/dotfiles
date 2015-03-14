@@ -1,6 +1,9 @@
 " be iMproved
 set nocompatible
 
+" speed up redrawing??
+set lazyredraw
+
 " disable file type detection
 filetype off
 
@@ -18,6 +21,14 @@ set ttimeoutlen=100
 
 " Let backspace behave... normally
 set backspace=2
+
+" neovim hacks
+" NeoVim handles ESC keys as alt+key set this to solve the problem
+if has('nvim')
+  set ttimeout
+  set ttimeoutlen=0
+  set matchtime=0
+endif
 
 " extend runtime path (rpt==runtimepath)
 set rtp+=~/.vim/bundle/Vundle.vim/
