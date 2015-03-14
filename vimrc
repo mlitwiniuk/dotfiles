@@ -136,6 +136,13 @@ Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'skalnik/vim-vroom'
 Plugin 'briancollins/vim-jst'
 
+""
+"" JAVASCRIPT
+""
+Plugin 'burnettk/vim-angular'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+
 
 ""
 "" GO
