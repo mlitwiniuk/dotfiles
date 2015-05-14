@@ -324,7 +324,7 @@ nnoremap zO zCzO
 " set <leader>
 let mapleader=","
 
-"map <leader>r :so %<CR> " reload opened vim config
+map <leader>r :so ~/.vimrc<CR> " reload opened vim config
 " needed only while editing new vimrv
 "map <leader>bu :PluginInstall<CR>
 
@@ -393,6 +393,8 @@ map <right> <nop>
 syntax enable
 set background=dark
 colorscheme hybrid
+set background=light
+colorscheme solarized
 " always display airline (no split needed)
 set laststatus=2
 " airline
