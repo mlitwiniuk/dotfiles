@@ -2,7 +2,7 @@
   name = Maciej Litwiniuk
   email = maciej@litwiniuk.net
 [core]
-  editor = vim -f
+  editor = "vim -f"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =

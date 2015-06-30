@@ -8,11 +8,15 @@ set lazyredraw
 filetype off
 
 " make it 256 colors
-if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
-  set t_Co=256
-  if exists("&t_8f")
-    let &t_8f="\e[38;2;%ld;%ld;%ldm"
-    let &t_8b="\e[48;2;%ld;%ld;%ldm"
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+else
+  if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+    set t_Co=256
+    if exists("&t_8f")
+      let &t_8f="\e[38;2;%ld;%ld;%ldm"
+      let &t_8b="\e[48;2;%ld;%ld;%ldm"
+    endif
   endif
 endif
 
@@ -53,7 +57,7 @@ Plugin 'tpope/vim-surround'
 
 " A tree explorer plugin for vim.
 Plugin 'scrooloose/nerdtree'
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 
 " Fuzzy file, buffer, mru, tag, etc finder.
 Plugin 'kien/ctrlp.vim'
@@ -81,9 +85,6 @@ Plugin 'troydm/easybuffer.vim'
 Plugin 'scrooloose/syntastic'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
-" A fancy start screen for Vim.
-Plugin 'mhinz/vim-startify'
-
 " Perform all your vim insert mode completions with Tab
 Plugin 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -95,13 +96,13 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'kana/vim-textobj-user'
 
 " Snippets
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"Plugin 'honza/vim-snippets'
+"let g:UltiSnipsExpandTrigger="<Tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Alignment
 Plugin 'junegunn/vim-easy-align'
@@ -133,7 +134,6 @@ Plugin 'tpope/vim-rails'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'ecomba/vim-ruby-refactoring'
 " A vim plugin for running your Ruby tests
-Plugin 'skalnik/vim-vroom'
 Plugin 'briancollins/vim-jst'
 
 ""
@@ -182,10 +182,16 @@ Plugin 'groenewege/vim-less'
 Plugin 'tpope/vim-markdown'
 
 ""
+"" NIM
+""
+Plugin 'zah/nimrod.vim'
+
+""
 "" VISUALS
 ""
 Plugin 'w0ng/vim-hybrid'
 Plugin 'altercation/vim-colors-solarized'
+"Plugin 'frankier/neovim-colors-solarized-truecolor-only'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'tomasr/molokai'
 Plugin 'noahfrederick/vim-hemisu'
@@ -222,7 +228,7 @@ set title
 set visualbell
 set noerrorbells
 set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
+"autocmd GUIEnter * set visualbell t_vb=
 
 " there are other tools for making backups
 set nobackup
@@ -247,7 +253,7 @@ set numberwidth=4
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=81
+set colorcolumn=80
 
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
@@ -301,6 +307,15 @@ function! g:ToggleNuMode()
 endfunc
 nnoremap <F4> :call g:ToggleNuMode()<cr>
 
+function! g:ToggleBackground()
+  if(&background == 'dark')
+    set background=light
+  else
+    set background=dark
+  endif
+endfunction
+nnoremap <F6> :call g:ToggleBackground()<cr>
+
 autocmd BufWritePre * :%s/\s\+$//e
 
 " copy using clipper
@@ -338,6 +353,9 @@ nnoremap K <C-w>k
 "nnoremap <C-k> <C-w>k
 "nnoremap <C-h> <C-w>h
 "nnoremap <C-l> <C-w>l
+"if has('nvim')
+  "nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+"endif
 
 " split window vertically and focus new one
 nnoremap <leader>v <C-w>v<C-w>l
@@ -377,10 +395,6 @@ nmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <leader>/ :call NERDComment(0, "invert")<cr>
 map <D-/> :call NERDComment(0, "invert")<cr>
 
-" vroom config
-let g:vroom_use_spring = 1
-let g:vroom_test_unit_command = 'testunit'
-
 " disable arrow keys
 map <up> <nop>
 map <down> <nop>
@@ -392,9 +406,10 @@ map <right> <nop>
 ""
 syntax enable
 set background=dark
-colorscheme hybrid
-set background=light
 colorscheme solarized
+if has("nvim")
+  colorscheme solarized
+endif
 " always display airline (no split needed)
 set laststatus=2
 " airline

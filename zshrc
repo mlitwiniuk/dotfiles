@@ -1,5 +1,6 @@
 ZSH_THEME="af-magic"
 PATH="/usr/local/lib/node_modules:$PATH"
+PATH="$HOME/dev/nim/github/nimble:$PATH"
 source ~/.prograils_env
 #source ~/.galdomedia_env
 
@@ -9,6 +10,8 @@ alias v="vim"
 alias vi="echo use v!!"
 alias f="fg"
 alias l="ls"
+alias nv='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+alias nvim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 
 ## TMUX
 alias tls="tmux ls"
@@ -81,11 +84,14 @@ bindkey '^N' down-history
 
 # backspace and ^h working even after returning from command mode
 bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
+#bindkey '^h' backward-delete-char
+
+#bindkey -n C-h send-keys Escape "[104;5u"
 
 # ctrl-w removed word backwards
 bindkey '^w' backward-kill-word
 
 # ctrl-r starts searching history backward
 bindkey '^r' history-incremental-search-backward
+
 
