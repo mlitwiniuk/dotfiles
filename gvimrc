@@ -1,6 +1,6 @@
 syntax enable
 set background=dark
-colorscheme hemisu
+colorscheme solarized
 set guifont=Anonymous\ Pro\ for\ Powerline\ Bold\ 10
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar

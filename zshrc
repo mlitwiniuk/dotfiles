@@ -1,11 +1,11 @@
 ZSH_THEME="af-magic"
-PATH="/usr/local/lib/node_modules:$PATH"
+#PATH="/usr/local/lib/node_modules:$PATH"
 PATH="$HOME/dev/nim/github/nimble:$PATH"
 source ~/.prograils_env
 #source ~/.galdomedia_env
 
 ## ALIASES
-# alias vim="mvim -v"
+alias vim="TERM=screen-256color vim"
 alias v="vim"
 alias vi="echo use v!!"
 alias f="fg"
@@ -14,6 +14,8 @@ alias nv='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias nvim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 
 ## TMUX
+alias tmux="TERM=screen-256color /usr/bin/tmux -2"
+#alias tmux="/usr/bin/tmux -2"
 alias tls="tmux ls"
 alias td="tmux detach"
 alias tnew="new-tmux-from-dir-name"
