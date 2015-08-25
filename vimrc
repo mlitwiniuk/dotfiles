@@ -199,6 +199,7 @@ Plugin 'cocopon/iceberg.vim'
 Plugin 'mlitwiniuk/vim-abra'
 Plugin 'nice/sweater'
 Plugin 'freeo/vim-kalisi'
+Plugin 'morhetz/gruvbox'
 
 Plugin 'bling/vim-airline'
 " enable airline
@@ -406,7 +407,7 @@ map <right> <nop>
 ""
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 if has("nvim")
   colorscheme solarized
 endif
@@ -416,7 +417,7 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#enabled = 0
-let g:airline_theme='kalisi'
+let g:airline_theme='gruvbox'
 
 if has("gui_running")
   if has("mac") || has("macunix")
