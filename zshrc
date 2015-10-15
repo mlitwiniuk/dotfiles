@@ -14,7 +14,7 @@ alias nv='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias nvim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 
 ## TMUX
-alias tmux="TERM=screen-256color /usr/bin/tmux -2"
+alias tmux="TERM=screen-256color /usr/local/bin/tmux -2"
 #alias tmux="/usr/bin/tmux -2"
 alias tls="tmux ls"
 alias td="tmux detach"
