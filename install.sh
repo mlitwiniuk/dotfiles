@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles=(tmux.conf vimrc gemrc gitignore gitconfig gvimrc)
+dotfiles=(tmux.conf vimrc gemrc gitignore gitconfig gvimrc agignore)
 for item in ${dotfiles[*]}
 do
   ln -s `pwd`/$item ~/.$item

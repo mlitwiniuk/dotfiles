@@ -47,7 +47,7 @@ Plugin 'gmarik/Vundle.vim'
 let g:vundle_default_git_proto = 'git'
 
 Plugin 'mileszs/ack.vim'
-"use the platinum searcher instead of ack
+"use the silver searcher instead of ack
 let g:ackprg = 'ag --vimgrep'
 
 " wisely add 'end' in ruby, endfunction/endif/more in vim script, etc
@@ -71,12 +71,16 @@ let g:ctrlp_extensions = ['dir', 'mixed']
 let g:ctrlp_max_files = 2000
 let g:ctrlp_max_depth = 10
 
-" PyMatcher for CtrlP
-Plugin 'FelikZ/ctrlp-py-matcher'
-if !has('python')
-  echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
-  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
 endif
 
 " vim plugin to quickly switch between buffers
