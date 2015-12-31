@@ -44,6 +44,9 @@ jr(){
   cd ~/Sites/jr/
   rbenv local jruby-1.7.12
 }
+es(){
+  cd ~/Sites/elixir/
+}
 
 function tmux-att-from-dir-name {
   SESSION_NAME=$1
