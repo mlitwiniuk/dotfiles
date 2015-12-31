@@ -89,6 +89,7 @@ Plugin 'troydm/easybuffer.vim'
 " Syntax checking hacks for vim
 Plugin 'scrooloose/syntastic'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_javascript_checkers = ['jslint', 'eslint']
 
 " Perform all your vim insert mode completions with Tab
 Plugin 'ervandew/supertab'
@@ -144,9 +145,10 @@ Plugin 'briancollins/vim-jst'
 ""
 "" JAVASCRIPT
 ""
-Plugin 'burnettk/vim-angular'
+"Plugin 'burnettk/vim-angular'
 Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
+"Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'mxw/vim-jsx'
 
 
 ""
@@ -195,8 +197,8 @@ Plugin 'zah/nimrod.vim'
 "" VISUALS
 ""
 Plugin 'w0ng/vim-hybrid'
-Plugin 'altercation/vim-colors-solarized'
-"Plugin 'frankier/neovim-colors-solarized-truecolor-only'
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'frankier/neovim-colors-solarized-truecolor-only'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'tomasr/molokai'
 Plugin 'noahfrederick/vim-hemisu'
@@ -205,12 +207,14 @@ Plugin 'mlitwiniuk/vim-abra'
 Plugin 'nice/sweater'
 Plugin 'freeo/vim-kalisi'
 Plugin 'morhetz/gruvbox'
+Plugin 'mkarmona/materialbox'
 
 Plugin 'bling/vim-airline'
 " enable airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tmuxline#enabled = 1
+"let g:airline_section_c = "%t"
 
 ""
 "" TMUX
@@ -218,6 +222,8 @@ let g:airline#extensions#tmuxline#enabled = 1
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'benmills/vimux'
 Plugin 'sjl/vitality.vim'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 "" After all bundles
 call vundle#end()
@@ -412,9 +418,11 @@ map <right> <nop>
 ""
 syntax enable
 set background=dark
-colorscheme gruvbox
 if has("nvim")
-  colorscheme solarized
+  colorscheme materialbox
+else
+  colorscheme materialbox
+  let g:airline_theme='materialbox'
 endif
 " always display airline (no split needed)
 set laststatus=2
@@ -422,7 +430,6 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#enabled = 0
-let g:airline_theme='gruvbox'
 
 if has("gui_running")
   if has("mac") || has("macunix")
