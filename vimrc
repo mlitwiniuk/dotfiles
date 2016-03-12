@@ -4,6 +4,8 @@ set nocompatible
 " speed up redrawing??
 set lazyredraw
 
+set ttyfast
+
 " disable file type detection
 filetype off
 
@@ -61,7 +63,6 @@ Plugin 'scrooloose/nerdtree'
 "autocmd vimenter * if !argc() | NERDTree | endif
 
 " Fuzzy file, buffer, mru, tag, etc finder.
-Plugin 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\.git$\|\.sass-cache$|\.hg$\|\.svn$\|\.yardoc\|public$|log\|tmp$|vendor$|coverage$',
@@ -82,6 +83,7 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " vim plugin to quickly switch between buffers
 Plugin 'troydm/easybuffer.vim'
@@ -92,14 +94,20 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_javascript_checkers = ['jslint', 'eslint']
 
 " Perform all your vim insert mode completions with Tab
-Plugin 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
+"Plugin 'ervandew/supertab'
+"let g:SuperTabDefaultCompletionType = "<c-n>"
+"let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 Plugin 'scrooloose/nerdcommenter'
 
 " required by vim-textobj-rubyblock
 Plugin 'kana/vim-textobj-user'
+
+"let g:windowswap_map_keys = 0 "prevent default bindings
+"nnoremap <silent> <leader>wy :call WindowSwap#MarkWindowSwap()<CR>
+"nnoremap <silent> <leader>wp :call WindowSwap#DoWindowSwap()<CR>
+"nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+"Plugin 'wesQ3/vim-windowswap'
 
 " Snippets
 "Plugin 'SirVer/ultisnips'
@@ -122,14 +130,14 @@ nmap ga <Plug>(EasyAlign)
 "" GIT
 ""
 Plugin 'tpope/vim-fugitive'
-Plugin 'sjl/splice.vim'
+"Plugin 'sjl/splice.vim'
 Plugin 'airblade/vim-gitgutter'
 let g:gitgutter_eager = 0 "run gitgutter only on file read & save
 
 ""
 "" ELIXIR
 ""
-Plugin 'elixir-lang/vim-elixir'
+"Plugin 'elixir-lang/vim-elixir'
 
 ""
 "" RUBY
@@ -138,7 +146,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rbenv'
 Plugin 'tpope/vim-rails'
 Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'ecomba/vim-ruby-refactoring'
+"Plugin 'ecomba/vim-ruby-refactoring'
 " A vim plugin for running your Ruby tests
 Plugin 'briancollins/vim-jst'
 
@@ -150,7 +158,6 @@ Plugin 'pangloss/vim-javascript'
 "Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'isRuslan/vim-es6'
-
 
 ""
 "" GO
@@ -187,12 +194,12 @@ Plugin 'groenewege/vim-less'
 ""
 "" MARKDOWN
 ""
-Plugin 'tpope/vim-markdown'
+"Plugin 'tpope/vim-markdown'
 
 ""
 "" NIM
 ""
-Plugin 'zah/nimrod.vim'
+"Plugin 'zah/nimrod.vim'
 
 ""
 "" VISUALS
@@ -209,13 +216,19 @@ Plugin 'nice/sweater'
 Plugin 'freeo/vim-kalisi'
 Plugin 'morhetz/gruvbox'
 Plugin 'mkarmona/materialbox'
+Plugin 'nathanaelkane/vim-indent-guides'
 
-Plugin 'bling/vim-airline'
 " enable airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tmuxline#enabled = 1
-"let g:airline_section_c = "%t"
+let g:airline_section_c = "%t"
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+let base16colorspace=256
+Plugin 'chriskempson/base16-vim'
+let base16colorspace=256
 
 ""
 "" TMUX
@@ -432,12 +445,13 @@ map <right> <nop>
 ""
 syntax enable
 set background=dark
-if has("nvim")
-  colorscheme materialbox
-else
-  colorscheme materialbox
-  let g:airline_theme='materialbox'
-endif
+let g:airline_theme='base16'
+"if has("nvim")
+  "colorscheme materialbox
+"else
+  "colorscheme materialbox
+"endif
+colorscheme base16-default
 " always display airline (no split needed)
 set laststatus=2
 " airline
