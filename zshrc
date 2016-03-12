@@ -10,6 +10,7 @@ alias v="vim"
 alias vi="echo use v!!"
 alias f="fg"
 alias l="ls"
+alias g="git"
 alias nv='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias nvim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias xclip='xclip -sel clip'
@@ -100,4 +101,8 @@ bindkey '^w' backward-kill-word
 # ctrl-r starts searching history backward
 bindkey '^r' history-incremental-search-backward
 
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
