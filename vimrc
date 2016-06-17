@@ -149,6 +149,7 @@ Plugin 'briancollins/vim-jst'
 Plugin 'pangloss/vim-javascript'
 "Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mxw/vim-jsx'
+Plugin 'isRuslan/vim-es6'
 
 
 ""
@@ -330,8 +331,21 @@ nnoremap <F6> :call g:ToggleBackground()<cr>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-" copy using clipper
-nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
+if has('mac')
+  " OSX
+  " copy using clipper
+  " nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
+else
+  " Copy to X CLIPBOARD
+  map <leader>cc :w !xsel -i -b<CR>
+  map <leader>y :w !xsel -i -b<CR>
+  map <leader>cp :w !xsel -i -p<CR>
+  map <leader>cs :w !xsel -i -s<CR>
+  " Paste from X CLIPBOARD
+  map <leader>pp :r!xsel -p<CR>
+  map <leader>ps :r!xsel -s<CR>
+  map <leader>pb :r!xsel -b<CR>
+end
 
 set foldlevelstart=0
 set foldmethod=syntax

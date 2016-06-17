@@ -12,9 +12,10 @@ alias f="fg"
 alias l="ls"
 alias nv='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias nvim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+alias xclip='xclip -sel clip'
 
 ## TMUX
-alias tmux="TERM=screen-256color /usr/local/bin/tmux -2"
+alias tmux="TERM=screen-256color $(which tmux) -2"
 #alias tmux="/usr/bin/tmux -2"
 alias tls="tmux ls"
 alias td="tmux detach"
@@ -38,7 +39,7 @@ r32(){
 }
 r4(){
   cd ~/Sites/r4/
-  rbenv local 2.2.4
+  rbenv local 2.3.1
 }
 jr(){
   cd ~/Sites/jr/
