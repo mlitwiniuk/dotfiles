@@ -137,7 +137,7 @@ let g:gitgutter_eager = 0 "run gitgutter only on file read & save
 ""
 "" ELIXIR
 ""
-"Plugin 'elixir-lang/vim-elixir'
+Plugin 'elixir-lang/vim-elixir'
 
 ""
 "" RUBY
@@ -344,10 +344,12 @@ nnoremap <F6> :call g:ToggleBackground()<cr>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-if has('mac')
+if has("mac") || has("osx")
   " OSX
   " copy using clipper
-  " nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
+  set clipboard=unnamed
+  nnoremap <leader>y :call system('nc localhost 8378', @0)<cr>
+  map <leader>y :call system('nc localhost 8377', @0)<CR>
 else
   " Copy to X CLIPBOARD
   map <leader>cc :w !xsel -i -b<CR>
@@ -361,8 +363,8 @@ else
 end
 
 set foldlevelstart=0
-set foldmethod=syntax
-au FileType ruby setlocal foldmethod=syntax
+set foldmethod=manual
+"au FileType ruby setlocal foldmethod=syntax
 
 " Space to toggle folds.
 nnoremap <space> za
@@ -446,12 +448,10 @@ map <right> <nop>
 syntax enable
 set background=dark
 let g:airline_theme='base16'
-"if has("nvim")
-  "colorscheme materialbox
-"else
-  "colorscheme materialbox
-"endif
-colorscheme base16-default
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 " always display airline (no split needed)
 set laststatus=2
 " airline
@@ -475,6 +475,4 @@ au BufWinEnter * silent! loadview
 
 "" Thyme
 nmap <leader>t :silent !thyme -d<cr>
-
-
 

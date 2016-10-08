@@ -46,7 +46,7 @@ jr(){
   cd ~/Sites/jr/
   rbenv local jruby-1.7.12
 }
-es(){
+e(){
   cd ~/Sites/elixir/
 }
 
@@ -103,6 +103,3 @@ bindkey '^r' history-incremental-search-backward
 
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
