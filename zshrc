@@ -1,8 +1,13 @@
 ZSH_THEME="af-magic"
 #PATH="/usr/local/lib/node_modules:$PATH"
-PATH="$HOME/dev/nim/github/nimble:$PATH"
+PATH="$HOME/.local/bin:$PATH"
 source ~/.prograils_env
 #source ~/.galdomedia_env
+
+
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+export TERM="xterm-256color"
 
 ## ALIASES
 alias vim="TERM=screen-256color vim"
@@ -14,6 +19,12 @@ alias g="git"
 alias nv='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias nvim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias xclip='xclip -sel clip'
+alias pbcopy='xclip'
+alias pbpaste='xclip -sel clip -o'
+alias prettyjson='python -m json.tool'
+
+## search and replace
+alias agr="ag $1 --files-with-matches | xargs -I {} sed -i '.back' -e \"s/$1/$2/g\" {}"
 
 ## TMUX
 alias tmux="TERM=screen-256color $(which tmux) -2"
@@ -26,21 +37,13 @@ alias tatt="tmux-att-from-dir-name"
 alias topcmds='cat ~/.zhistory | cut -d ";" -f 2 | sed "s, .*,," | sort | uniq -c | sort -n | tail -rn 30'
 
 ## Go to dir and set rbenv version
-r2(){
-  cd ~/Sites/r2/
-  rbenv local ree-1.8.7-2012.02
-}
-r3(){
-  cd ~/Sites/r3/
-  rbenv local ree-1.8.7-2012.02
-}
-r32(){
-  cd ~/Sites/r32/
-  rbenv local 1.9.3-p545
-}
 r4(){
   cd ~/Sites/r4/
-  rbenv local 2.3.1
+  rbenv local 2.3.3
+}
+r5(){
+  cd ~/Sites/r5/
+  rbenv local 2.4.1
 }
 jr(){
   cd ~/Sites/jr/
@@ -58,12 +61,9 @@ function tmux-att-from-dir-name {
   tmux attach-session -t $SESSION_NAME
 }
 
-
 function new-tmux-from-dir-name {
   tmux new-session -As `basename $PWD`
 }
-
-
 
 touchr(){
   touch tmp/restart.txt
@@ -73,9 +73,25 @@ touchrd(){
   touchr
 }
 
+vimflowy(){
+  cd ~/dev/vimflowy/
+  npm start -- --prod --db sqlite --dbfolder ~/ownCloud/vimflowy.sqlite --port 3456 &
+}
+
 restart_cinnamon(){
   export DISPLAY=:0.0 && cinnamon --replace
 }
+
+
+
+## PYENV
+#export PATH="$HOME/.pyenv/bin:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+
+## GO
+export GOPATH="$HOME/dev/gocode"
+export PATH="$PATH:$GOPATH/bin"
 
 # allow pressing ctrl+s (do not block terminal)
 stty -ixon

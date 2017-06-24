@@ -159,22 +159,32 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'isRuslan/vim-es6'
 
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
 ""
 "" GO
 ""
-"Plugin 'fatih/vim-go'
-"au FileType go nmap <Leader>i <Plug>(go-info)
-"au FileType go nmap <Leader>gd <Plug>(go-doc)
-"au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-"au FileType go nmap <leader>r <Plug>(go-run)
-"au FileType go nmap <leader>b <Plug>(go-build)
-"au FileType go nmap <leader>t <Plug>(go-test)
+Plugin 'fatih/vim-go'
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 ""
 "" RUST
 ""
 "Plugin 'wting/rust.vim'
-"au FileType rust nmap <leader>r <Plug>(RustRun)
+Plugin 'rust-lang/rust.vim'
+" let g:rustfmt_autosave = 1
+" au FileType rust nmap <leader>r <Plug>(RustRun)
 
 ""
 "" HAML
@@ -217,6 +227,7 @@ Plugin 'freeo/vim-kalisi'
 Plugin 'morhetz/gruvbox'
 Plugin 'mkarmona/materialbox'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'chriskempson/base16-vim'
 
 " enable airline
 let g:airline#extensions#tabline#enabled = 1
@@ -226,8 +237,6 @@ let g:airline_section_c = "%t"
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-let base16colorspace=256
-Plugin 'chriskempson/base16-vim'
 let base16colorspace=256
 
 ""
@@ -362,9 +371,10 @@ else
   map <leader>pb :r!xsel -b<CR>
 end
 
-set foldlevelstart=0
-set foldmethod=manual
-"au FileType ruby setlocal foldmethod=syntax
+set foldlevelstart=1
+set foldmethod=syntax
+au FileType ruby setlocal foldmethod=syntax
+set eol
 
 " Space to toggle folds.
 nnoremap <space> za
@@ -447,7 +457,9 @@ map <right> <nop>
 ""
 syntax enable
 set background=dark
-let g:airline_theme='base16'
+
+let g:airline_theme='materialbox'
+
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background

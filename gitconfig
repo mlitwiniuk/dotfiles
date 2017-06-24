@@ -1,15 +1,18 @@
 [user]
-  name = "Maciej Litwiniuk"
-  email = "maciej@litwiniuk.net"
+  name = Maciej Litwiniuk
+  email = maciej@litwiniuk.net
+  signingKey = D52F9DF1
 [core]
-  editor = "vim -f"
+  editor = vim -f
+[commit]
+  gpgSign = true
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
 [merge]
   tool = splice
 [mergetool "splice"]
-  cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+  cmd = mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'
   trustExitCode = true
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
@@ -35,7 +38,9 @@
   st = status
   l = log --pretty=format:'%C(yellow)%h%Creset - %Cblue%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  wtf = "! git log --pretty=tformat:\"%C(auto,yellow)%h%C(auto)%d%C(auto,reset) by %C(auto,blue)%cn%C(auto,reset), %C(auto,cyan)%ar%C(auto,reset)%n %s%n\" --stat"
+  wtf = ! git log --pretty=tformat:\"%C(auto,yellow)%h%C(auto)%d%C(auto,reset) by %C(auto,blue)%cn%C(auto,reset), %C(auto,cyan)%ar%C(auto,reset)%n %s%n\" --stat
   s = status --short
   dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
 
+[gc]
+	autoDetach = false
