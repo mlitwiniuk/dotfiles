@@ -22,6 +22,7 @@ alias xclip='xclip -sel clip'
 alias pbcopy='xclip'
 alias pbpaste='xclip -sel clip -o'
 alias prettyjson='python -m json.tool'
+alias open='xdg-open'
 
 ## search and replace
 alias agr="ag $1 --files-with-matches | xargs -I {} sed -i '.back' -e \"s/$1/$2/g\" {}"
