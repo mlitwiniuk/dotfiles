@@ -19,3 +19,6 @@ pickle-email-*.html
 /config/database.yml
 invoker*.ini
 .*
+**.DS_Store
+/tags
+ignored_stuff/

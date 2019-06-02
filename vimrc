@@ -10,18 +10,14 @@ set ttyfast
 filetype off
 
 " make it 256 colors
+set t_Co=256
+" enable 24 bit color support
+set t_8f=^[[38;2;%lu;%lu;%lum
+set t_8b=^[[48;2;%lu;%lu;%lum
 if has('nvim')
+  set termguicolors
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-else
-  if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
-    set t_Co=256
-    if exists("&t_8f")
-      let &t_8f="\e[38;2;%ld;%ld;%ldm"
-      let &t_8b="\e[48;2;%ld;%ld;%ldm"
-    endif
-    let g:solarized_termcolors=256
-  endif
-endif
+end
 
 " Adjust keycode timeout length
 set ttimeoutlen=100
@@ -57,66 +53,64 @@ Plugin 'tpope/vim-endwise'
 
 " quoting/parenthesizing made simple
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat' " To repeat surrounds
+
+" Copy yanked text to clipper / clipboard automatically
+Plugin 'wincent/vim-clipper'
+let g:ClipperAuto=1
 
 " A tree explorer plugin for vim.
 Plugin 'scrooloose/nerdtree'
 "autocmd vimenter * if !argc() | NERDTree | endif
 
-" Fuzzy file, buffer, mru, tag, etc finder.
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '\.git$\|\.sass-cache$|\.hg$\|\.svn$\|\.yardoc\|public$|log\|tmp$|vendor$|coverage$',
-  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
-  \ }
-let g:ctrlp_extensions = ['dir', 'mixed']
-let g:ctrlp_max_files = 2000
-let g:ctrlp_max_depth = 10
 
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 endif
-Plugin 'ctrlpvim/ctrlp.vim'
 
 " vim plugin to quickly switch between buffers
 Plugin 'troydm/easybuffer.vim'
-
-" Syntax checking hacks for vim
-Plugin 'scrooloose/syntastic'
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_javascript_checkers = ['jslint', 'eslint']
-
-" Perform all your vim insert mode completions with Tab
-"Plugin 'ervandew/supertab'
-"let g:SuperTabDefaultCompletionType = "<c-n>"
-"let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 Plugin 'scrooloose/nerdcommenter'
 
 " required by vim-textobj-rubyblock
 Plugin 'kana/vim-textobj-user'
 
-"let g:windowswap_map_keys = 0 "prevent default bindings
-"nnoremap <silent> <leader>wy :call WindowSwap#MarkWindowSwap()<CR>
-"nnoremap <silent> <leader>wp :call WindowSwap#DoWindowSwap()<CR>
-"nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
-"Plugin 'wesQ3/vim-windowswap'
+" Universal ctags / gutentgs
+Plugin 'ludovicchabant/vim-gutentags'
 
-" Snippets
-"Plugin 'SirVer/ultisnips'
+" tagbar
+Plugin 'majutsushi/tagbar'
+let g:tagbar_compact = 1
+let g:tagbar_sort = 1
+let g:tagbar_case_insensitive = 1
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
+let g:tagbar_type_css = {
+\ 'ctagstype' : 'Css',
+    \ 'kinds'     : [
+        \ 'c:classes',
+        \ 's:selectors',
+        \ 'i:identities'
+    \ ]
+\ }
 
-" Snippets are separated from the engine. Add this if you want them:
-"Plugin 'honza/vim-snippets'
-"let g:UltiSnipsExpandTrigger="<Tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" fzf - use that for ctags
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+nnoremap _ :Tags<CR>
 
 " Alignment
 Plugin 'junegunn/vim-easy-align'
@@ -125,119 +119,101 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" Indentation
+Plugin 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_start_level = 2
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 5
 
+" Helpers for UNIX
+Plugin 'tpope/vim-eunuch'
+
+" implementation of the PlainTasks forma
+Plugin 'elentok/plaintasks.vim'
+
+Plugin 'djoshea/vim-autoread'
 ""
 "" GIT
 ""
 Plugin 'tpope/vim-fugitive'
-"Plugin 'sjl/splice.vim'
 Plugin 'airblade/vim-gitgutter'
+let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 0 "run gitgutter only on file read & save
+let g:gitgutter_enabled = 1
 
 ""
-"" ELIXIR
+"" LANGUAGE SUPPORT
 ""
-Plugin 'elixir-lang/vim-elixir'
+Plugin 'vim-syntastic/syntastic'
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=2
+let g:syntastic_check_on_wq=0
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_quiet_messages = { "level": "warnings" }
 
 ""
-"" RUBY
+"" COFFEE SCRIPT
 ""
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rbenv'
-Plugin 'tpope/vim-rails'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-"Plugin 'ecomba/vim-ruby-refactoring'
-" A vim plugin for running your Ruby tests
-Plugin 'briancollins/vim-jst'
+Plugin 'kchmck/vim-coffee-script'
+
+""
+"" CRYSTAL
+""
+Plugin 'rhysd/vim-crystal'
+
 
 ""
 "" JAVASCRIPT
 ""
-"Plugin 'burnettk/vim-angular'
-Plugin 'pangloss/vim-javascript'
-"Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'isRuslan/vim-es6'
-
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 ""
 "" GO
 ""
-Plugin 'fatih/vim-go'
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
 
 ""
-"" RUST
+"" RAILS
 ""
-"Plugin 'wting/rust.vim'
-Plugin 'rust-lang/rust.vim'
-" let g:rustfmt_autosave = 1
-" au FileType rust nmap <leader>r <Plug>(RustRun)
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'keith/rspec.vim'
+Plugin 'tpope/vim-rails'
+""
+"" YAML
+""
+Plugin 'digitalrounin/vim-yaml-folds'
 
-""
-"" HAML
-""
-Plugin 'tpope/vim-haml'
+" omni completion settings
+set omnifunc=syntaxcomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
-""
-"" COFFEESCRIPT
-""
-Plugin 'kchmck/vim-coffee-script'
-
-""
-"" CSS
-""
-Plugin 'groenewege/vim-less'
-
-""
-"" MARKDOWN
-""
-"Plugin 'tpope/vim-markdown'
-
-""
-"" NIM
-""
-"Plugin 'zah/nimrod.vim'
 
 ""
 "" VISUALS
 ""
-Plugin 'w0ng/vim-hybrid'
-"Plugin 'altercation/vim-colors-solarized'
-Plugin 'frankier/neovim-colors-solarized-truecolor-only'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'tomasr/molokai'
-Plugin 'noahfrederick/vim-hemisu'
-Plugin 'cocopon/iceberg.vim'
-Plugin 'mlitwiniuk/vim-abra'
-Plugin 'nice/sweater'
-Plugin 'freeo/vim-kalisi'
-Plugin 'morhetz/gruvbox'
-Plugin 'mkarmona/materialbox'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'chriskempson/base16-vim'
+
 
 " enable airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_section_c = "%t"
+let g:airline_powerline_fonts=1
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-let base16colorspace=256
+Plugin 'ryanoasis/vim-devicons'
+
+let g:airline_powerline_fonts = 1
 
 ""
 "" TMUX
@@ -353,23 +329,6 @@ nnoremap <F6> :call g:ToggleBackground()<cr>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-if has("mac") || has("osx")
-  " OSX
-  " copy using clipper
-  set clipboard=unnamed
-  nnoremap <leader>y :call system('nc localhost 8378', @0)<cr>
-  map <leader>y :call system('nc localhost 8377', @0)<CR>
-else
-  " Copy to X CLIPBOARD
-  map <leader>cc :w !xsel -i -b<CR>
-  map <leader>y :w !xsel -i -b<CR>
-  map <leader>cp :w !xsel -i -p<CR>
-  map <leader>cs :w !xsel -i -s<CR>
-  " Paste from X CLIPBOARD
-  map <leader>pp :r!xsel -p<CR>
-  map <leader>ps :r!xsel -s<CR>
-  map <leader>pb :r!xsel -b<CR>
-end
 
 set foldlevelstart=1
 set foldmethod=syntax
@@ -417,26 +376,34 @@ noremap <silent>// :nohls<CR>
 
 " show NERDTree
 noremap <leader>n :NERDTreeToggle<CR>
+" NerdTree configuration
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" show CtrlP menu
-noremap <leader>p :CtrlP<CR>
-" show CtrlP menu for buffer
-noremap <leader>b :CtrlPBuffer<CR>
+" Fuzzy file, buffer, mru, tag, etc finder.
+nmap ; :Buffers<CR>
+nmap <Leader>p :Files<CR>
+"nmap <Leader>m :Files app/models/<CR>
+noremap <leader>b :Buffers<CR>
 " Rails pecific mappings
-map <leader>jm :CtrlP app/models<CR>
-map <leader>jc :CtrlP app/controllers<CR>
-map <leader>jv :CtrlP app/views<CR>
-map <leader>jh :CtrlP app/helpers<CR>
-map <leader>jl :CtrlP lib<CR>
-map <leader>ja :CtrlP app/assets<CR>
-map <leader>jp :CtrlP public<CR>
-map <leader>js :CtrlP spec<CR>
-map <leader>jf :CtrlP fast_spec<CR>
-map <leader>jd :CtrlP db<CR>
-map <leader>jC :CtrlP config<CR>
-map <leader>jV :CtrlP vendor<CR>
-map <leader>jF :CtrlP factories<CR>
-map <leader>jT :CtrlP test<CR>
+map <leader>jm :Files app/models<CR>
+map <leader>jc :Files app/controllers<CR>
+map <leader>jv :Files app/views<CR>
+map <leader>jh :Files app/helpers<CR>
+map <leader>jl :Files lib<CR>
+map <leader>ja :Files app/assets<CR>
+map <leader>jp :Files public<CR>
+map <leader>js :Files spec<CR>
+map <leader>jsc :Files spec/controllers<CR>
+map <leader>jsm :Files spec/models<CR>
+map <leader>jsf :Files spec/features<CR>
+map <leader>jf :Files fast_spec<CR>
+map <leader>jd :Files db<CR>
+map <leader>jC :Files config<CR>
+map <leader>jV :Files vendor<CR>
+map <leader>jF :Files factories<CR>
+map <leader>jT :Files test<CR>
 
 map <leader>l :EasyBufferToggle<CR>
 
@@ -458,19 +425,31 @@ map <right> <nop>
 syntax enable
 set background=dark
 
-let g:airline_theme='materialbox'
 
-if filereadable(expand("~/.vimrc_background"))
+"let g:airline_theme='material'
+let g:airline_theme='kalisi'
+if $TERM_ORIG != "konsole"
+  " As a work around for the following bugs in kde4's konsole:
+  "   use the output of 16.colorscheme.rb and don't set base16colorspace.
+  "   base-shell script will not be called
+  " https://github.com/chriskempson/base16-shell/issues/31
+  " https://bugs.kde.org/show_bug.cgi?id=344181
   let base16colorspace=256
-  source ~/.vimrc_background
+  if filereadable(expand("~/.vimrc_background"))
+    source ~/.vimrc_background
+  endif
+else
 endif
+
+
 " always display airline (no split needed)
 set laststatus=2
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 
+set guifont=Knack\ Nerd\ Font\ Font\ Mono\ Regular\ 10
 if has("gui_running")
   if has("mac") || has("macunix")
     set guifont=Source\ Code\ Pro\ for\ Powerline:h11
@@ -487,4 +466,32 @@ au BufWinEnter * silent! loadview
 
 "" Thyme
 nmap <leader>t :silent !thyme -d<cr>
+
+set guicursor=n-c:block,i-ci-ve:ver40,r-cr-v:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
+" cursor shape mode dependent (add +1 to stop from blinking)
+" if exists('$TMUX')
+if strlen($TMUX)
+  if $TERM_ORIG != 'konsole'
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+  end
+else
+  if $TERM_ORIG != 'konsole'
+    let &t_SI = "\<Esc>[5 q"
+    let &t_SR = "\<Esc>[4 q"
+    let &t_EI = "\<Esc>[2 q"
+  endif
+endif
+
+
+if has("mac") || has("osx")
+  " OSX
+  " copy using clipper
+  " `brew install clipper`
+  " yanked text is automatically copied to clipboard via vim-clipper plugin
+else
+  " Copy to X CLIPBOARD
+  vmap <leader>y :w !xsel -b<CR>
+  nmap <leader>y :.w !xsel -b<CR>
+end
 
