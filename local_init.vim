@@ -52,6 +52,11 @@ map <Leader>rs :call RunNearestSpec()<CR>
 map <Leader>rl :call RunLastSpec()<CR>
 map <Leader>ra :call RunAllSpecs()<CR>
 
+" nerdcommenter
+noremap <leader>/ :call NERDComment(0, "invert")<cr>
+nnoremap <leader>/ :call NERDComment(0, "invert")<cr>
+vnoremap <leader>/ :call NERDComment(0, "invert")<cr>
+noremap <D-/> :call NERDComment(0, "invert")<cr>
 
 " whenever changing vim config, reload it on save
 augroup myvimrc
