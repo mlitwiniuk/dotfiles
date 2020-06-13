@@ -30,7 +30,7 @@
   untracked = red
 [core]
 	excludesfile = /Users/mlitwiniuk/.gitignore_global
-  pager = less -FRSX
+	pager = delta --dark
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [alias]
   last = for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'

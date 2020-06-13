@@ -1,5 +1,4 @@
 . $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
 
 ZSH_THEME="af-magic"
 #PATH="/usr/local/lib/node_modules:$PATH"
@@ -15,6 +14,15 @@ if [[ $TERM_ORIG != konsole* ]]; then
 	#eval `dircolors ~/.nightshell/dircolors`
 fi
 #export TERM="xterm-256color"
+
+# yarn bin paths
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# rabbitmq
+export PATH="/usr/local/opt/rabbitmq/sbin:$PATH"
+
+
+# heroku autocomplete setup
+# HEROKU_AC_ZSH_SETUP_PATH=/Users/mlitwiniuk/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 export EDITOR="nvim"
 
@@ -51,6 +59,9 @@ alias topcmds='cat ~/.zhistory | cut -d ";" -f 2 | sed "s, .*,," | sort | uniq -
 
 alias did="vim +'normal Go' +'r!date' ~/did.txt"
 
+alias devlog="tail -f log/development.log"
+alias testlog="tail -f log/test.log"
+
 ## Go to dir and set rbenv version
 r4(){
   cd ~/Sites/r4/
@@ -58,7 +69,11 @@ r4(){
 }
 r5(){
   cd ~/Sites/r5/
-  asdf local ruby 2.6.2
+  asdf local ruby 2.6.6
+}
+r6(){
+  cd ~/Sites/r6/
+  asdf local ruby 2.6.6
 }
 e(){
   cd ~/Sites/elixir/
