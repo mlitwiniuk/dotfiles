@@ -43,7 +43,14 @@ nnoremap <silent> <leader>jm :Files app/models<CR>
 nnoremap <silent> <leader>jc :Files app/controllers<CR>
 nnoremap <silent> <leader>jj :Files app/javascript<CR>
 nnoremap <silent> <leader>js :Files spec<CR>
+nnoremap <silent> <leader>jv :Files app/views<CR>
+nnoremap <silent> <leader>jh :Files app/helpers<CR>
+nnoremap <silent> <leader>jl :Files lib<CR>
 
+
+:nnoremap <F1> <nop>
+
+" NerdTree
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
 " RSpec.vim mappings
