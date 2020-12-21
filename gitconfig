@@ -1,11 +1,11 @@
 [user]
 	name = Maciej Litwiniuk
 	email = maciej@litwiniuk.net
-	signingkey = A88C4CD3C1B589C7222480352F074167D52F9DF1!
+	signingkey = 2F074167D52F9DF1
 [core]
   editor = nvim -f
 [commit]
-  gpgSign = true
+  gpgsign = true
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
