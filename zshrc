@@ -79,6 +79,10 @@ e(){
   cd ~/Sites/elixir/
 }
 
+function brew-install {
+  brew install --build-from-source $(brew deps -n --include-build --union "$@") "$@"
+}
+
 function tmux-att-from-dir-name {
   SESSION_NAME=$1
   if [[ -z $SESSION_NAME ]]; then
