@@ -32,6 +32,7 @@
 	excludesfile = /Users/mlitwiniuk/.gitignore_global
 	pager = delta --dark
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	ignorecase = false
 [alias]
   last = for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'
   ci = commit
@@ -44,3 +45,5 @@
 [gc]
   autoDetach = false
 
+[init]
+	defaultBranch = master
