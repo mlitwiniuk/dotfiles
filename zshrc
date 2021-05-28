@@ -71,11 +71,11 @@ r4(){
 }
 r5(){
   cd ~/Sites/r5/
-  asdf local ruby 2.6.6
+  asdf local ruby 2.6.7
 }
 r6(){
   cd ~/Sites/r6/
-  asdf local ruby 2.6.6
+  asdf local ruby 2.7.3
 }
 e(){
   cd ~/Sites/elixir/
