@@ -78,7 +78,10 @@ r6(){
   asdf local ruby 2.7.3
 }
 e(){
-  cd ~/Sites/elixir/
+  cd ~/dev/elixir/
+}
+p(){
+  cd ~/Sites/phoenix/
 }
 
 function brew-install {
