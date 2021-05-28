@@ -8,3 +8,4 @@ Plug 'sainnhe/sonokai'
 Plug 'scrooloose/nerdtree'
 Plug 'psliwka/vim-smoothie'
 Plug 'mhinz/vim-signify'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
