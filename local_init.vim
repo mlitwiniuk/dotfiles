@@ -82,3 +82,5 @@ map <Leader>r :so $MYVIMRC<CR>
 au FocusLost * :wa
 let g:tmux_navigator_save_on_switch = 2
 
+" vim-prettier config
+ nmap <Leader>P <Plug>(Prettier)
