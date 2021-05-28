@@ -5,7 +5,7 @@
 [core]
   editor = nvim -f
 [commit]
-  gpgsign = true
+  ; gpgsign = true
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =

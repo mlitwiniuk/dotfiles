@@ -22,3 +22,4 @@ invoker*.ini
 **.DS_Store
 /tags
 ignored_stuff/
+node_modules

@@ -16,9 +16,9 @@ fi
 #export TERM="xterm-256color"
 
 # yarn bin paths
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # rabbitmq
-export PATH="/usr/local/opt/rabbitmq/sbin:$PATH"
+# export PATH="/usr/local/opt/rabbitmq/sbin:$PATH"
 
 
 # heroku autocomplete setup
@@ -29,7 +29,7 @@ export EDITOR="nvim"
 ## ALIASES
 alias vim="nvim"
 alias v="vim"
-#alias st="st -f \"Hack:style=Regular:size=10\""
+# alias st="st -f \"Hack:style=Regular:size=10\""
 alias vi="echo use v!!"
 alias f="fg"
 alias l="ls"
@@ -43,13 +43,14 @@ alias xclip='xclip -sel clip'
 alias prettyjson='python -m json.tool'
 #alias open='xdg-open'
 alias clip="nc localhost 8377"
+alias code="code-insiders"
 
 ## search and replace
 alias agr="ag $1 --files-with-matches | xargs -I {} sed -i '.back' -e \"s/$1/$2/g\" {}"
 
 ## TMUX
 #alias tmux="TERM=screen-256color $(which tmux) -2"
-alias tmux="$(which tmux) -2"
+#alias tmux="$(which tmux) -2"
 alias tls="tmux ls"
 alias td="tmux detach"
 alias tnew="new-tmux-from-dir-name"
@@ -130,7 +131,7 @@ _has() {
 
 ## GO
 export GOPATH=$HOME/dev/golang
-export GOROOT=/usr/local/opt/go/libexec
+# export GOROOT=/usr/local/opt/go/libexec
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOROOT/bin
