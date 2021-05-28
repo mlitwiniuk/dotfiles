@@ -57,6 +57,8 @@ alias tatt="tmux-att-from-dir-name"
 
 alias topcmds='cat ~/.zhistory | cut -d ";" -f 2 | sed "s, .*,," | sort | uniq -c | sort -n | tail -rn 30'
 
+alias youtube-dl-audio='youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
+
 alias did="vim +'normal Go' +'r!date' ~/did.txt"
 
 alias devlog="tail -f log/development.log"
