@@ -1,5 +1,5 @@
 " fullcolor in neovim
-set termguicolors 
+set termguicolors
 " Better display for messages
 set cmdheight=1
 set modelines=0
@@ -9,8 +9,12 @@ set softtabstop=2
 set expandtab
 
 let g:one_allow_italics = 1
-silent! colorscheme one
+let g:sonokai_style = 'andromeda'
+let g:sonokai_enable_italic = 1
+silent! colorscheme sonokai
 
+" default updatetime 4000ms is not good for async update
+set updatetime=100
 " jj returns to normal
 inoremap jj <ESC>
 
@@ -52,6 +56,7 @@ nnoremap <silent> <leader>jl :Files lib<CR>
 
 " NerdTree
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " RSpec.vim mappings
 map <Leader>rt :call RunCurrentSpecFile()<CR>
