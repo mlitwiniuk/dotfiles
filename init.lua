@@ -28,6 +28,7 @@ require('packer').startup(function()
   use 'joshdick/onedark.vim'         -- Theme inspired by Atom
   use {'crispgm/nord-vim', branch = 'develop'} -- Nord theme
   use 'rafamadriz/neon'
+  use 'folke/tokyonight.nvim'
   use 'itchyny/lightline.vim'        -- Fancier statusline
   use 'christoomey/vim-tmux-navigator' -- 
   --
@@ -92,7 +93,7 @@ vim.g.onedark_terminal_italics = 2
 vim.g.neon_style = "default"
 vim.g.neon_italic_keyword = true
 vim.g.neon_italic_function = true
-vim.cmd[[colorscheme neon]]
+vim.cmd[[colorscheme tokyonight]]
 
 --Set statusbar
 vim.g.lightline = { colorscheme = 'onedark';
