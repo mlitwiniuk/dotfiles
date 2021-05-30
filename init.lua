@@ -93,6 +93,8 @@ vim.g.onedark_terminal_italics = 2
 vim.g.neon_style = "default"
 vim.g.neon_italic_keyword = true
 vim.g.neon_italic_function = true
+vim.g.tokyonight_style = "storm"
+vim.g.tokyonight_italic_functions = true
 vim.cmd[[colorscheme tokyonight]]
 
 --Set statusbar
