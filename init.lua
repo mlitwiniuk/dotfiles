@@ -21,7 +21,7 @@ require('packer').startup(function()
   use 'tpope/vim-rhubarb'            -- Fugitive-companion to interact with github
   use 'tpope/vim-commentary'         -- "gc" to comment visual regions/lines
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
-  use 'editorconfig/editorconfig-vim' 
+  use 'editorconfig/editorconfig-vim'
   --
   -- UI to select things (files, grep results, open buffers...)
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
@@ -30,7 +30,7 @@ require('packer').startup(function()
   use 'rafamadriz/neon'
   use 'folke/tokyonight.nvim'
   use 'itchyny/lightline.vim'        -- Fancier statusline
-  use 'christoomey/vim-tmux-navigator' -- 
+  use 'christoomey/vim-tmux-navigator' --
   --
   -- Add indentation guides even on blank lines
   use { 'lukas-reineke/indent-blankline.nvim', branch="lua" }
@@ -162,6 +162,10 @@ require('telescope').setup {
     file_sorter =  require'telescope.sorters'.get_fzy_sorter,
   }
 }
+
+-- Git signs
+require('gitsigns').setup()
+
 --Add leader shortcuts
 vim.api.nvim_set_keymap('n', '<leader>p', [[<cmd>lua require('telescope.builtin').find_files()<cr>]], { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<cr>]], { noremap = true, silent = true})
