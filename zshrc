@@ -1,5 +1,4 @@
-. $HOME/.asdf/asdf.sh
-
+. $(brew --prefix asdf)/libexec/asdf.sh
 ZSH_THEME="af-magic"
 #PATH="/usr/local/lib/node_modules:$PATH"
 PATH="$HOME/.local/bin:$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
