@@ -50,6 +50,7 @@ alias agr="ag $1 --files-with-matches | xargs -I {} sed -i '.back' -e \"s/$1/$2/
 ## TMUX
 #alias tmux="TERM=screen-256color $(which tmux) -2"
 #alias tmux="$(which tmux) -2"
+alias tmux="tmux -u"
 alias tls="tmux ls"
 alias td="tmux detach"
 alias tnew="new-tmux-from-dir-name"
