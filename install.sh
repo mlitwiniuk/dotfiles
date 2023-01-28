@@ -1,12 +1,12 @@
 #!/bin/bash
 
-dotfiles=(tmux.conf gemrc gitignore gitconfig agignore)
+dotfiles=(tmux.conf gemrc gitignore gitconfig agignore laptop.local)
 for item in ${dotfiles[*]}
 do
   ln -s `pwd`/$item ~/.$item
 done
 
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "source `pwd`/zshrc" >> ~/.zshrc
 
