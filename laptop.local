@@ -1,27 +1,27 @@
-brew "jesseduffield/lazygit/lazygit"
+brew install jesseduffield/lazygit/lazygit
 
-brew "nvim"
+brew install nvim
 
-brew "git-delta" 
+brew install git-delta
 
-brew "lazygit" 
+brew install lazygit
 
-brew "the_platinum_searcher"
+brew install the_platinum_searcher
 
-brew "universal-ctags"
-
+brew install universal-ctags
 
 echo 'legacy_version_file = yes' > ~/.asdfrc
 
-brew "puma/puma/puma-dev`"
+brew install puma/puma/puma-dev
 sudo puma-dev -setup
 puma-dev -install
 
-git clone git@github.com:mlitwiniuk/nv-ide.git ~/.nv-ide
+git clone git@github.com:mlitwiniuk/nv-ide.git ~/dev/.nv-ide
 
-ln -s ~/.nv-ide ~/.config/nvim
+mkdir ~/.config
+ln -s ~/dev/.nv-ide ~/.config/nvim
 
-cask "eloston-chromium"
-cask "keepassxc"
-cask "free-gpgmail"
-cask "syncthing"
+brew install --cask eloston-chromium
+brew install --cask keepassxc
+brew install --cask free-gpgmail
+brew install --cask syncthing
