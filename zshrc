@@ -80,7 +80,7 @@ r6(){
 }
 r7(){
   cd ~/Sites/r7/
-  asdf local ruby 3.2.0
+  asdf local ruby 3.2.1
 }
 e(){
   cd ~/dev/elixir/
