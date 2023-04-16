@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles=(tmux.conf gemrc gitignore gitconfig agignore laptop.local)
+dotfiles=(tmux.conf gemrc gitignore gitconfig agignore laptop.local default_gems)
 for item in ${dotfiles[*]}
 do
   ln -s `pwd`/$item ~/.$item
