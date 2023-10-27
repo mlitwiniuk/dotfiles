@@ -1,7 +1,9 @@
+[init]
+	defaultBranch = master
 [user]
   name = Maciej Litwiniuk
   email = maciej@litwiniuk.net
-  signingkey = 2F074167D52F9DF1
+	signingkey = D52F9DF1
 [core]
   editor = nvim -f
 [commit]
@@ -29,7 +31,7 @@
   changed = yellow
   untracked = red
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/mlitwiniuk/.gitignore
 	pager = delta --dark
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	ignorecase = false
@@ -44,6 +46,7 @@
   s = status --short
 [gc]
   autoDetach = false
-
-[init]
-	defaultBranch = master
+[credential]
+  helper = cache
+[url "git@github.com:"]
+	insteadOf = https://github.com/
