@@ -195,3 +195,4 @@ if _has fzf && _has ag; then
 fi
 
 export ERL_AFLAGS="-kernel shell_history enabled"
+export RUBY_YJIT_ENABLE="true"
