@@ -197,5 +197,5 @@ fi
 export ERL_AFLAGS="-kernel shell_history enabled"
 export RUBY_YJIT_ENABLE="true"
 
-# McFly to replate history search
-eval "$(mcfly init zsh)"
+# ~~McFly~~ aruin to replate history search
+eval "$(atuin init zsh)"
