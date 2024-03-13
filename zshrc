@@ -199,3 +199,5 @@ export RUBY_YJIT_ENABLE="true"
 
 # ~~McFly~~ aruin to replate history search
 eval "$(atuin init zsh)"
+
+eval "$(direnv hook zsh)"
