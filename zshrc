@@ -2,7 +2,9 @@
 # ZSH_THEME="af-magic"
 #PATH="/usr/local/lib/node_modules:$PATH"
 PATH="$HOME/.local/bin:$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
+
 source ~/.prograils_env
+source ~/dev/prograils_dotfiles/aws-creds.bash
 NIGHTSHELL_THEME=office-dark
 
 BASE16_SHELL=$HOME/.config/base16-shell/
@@ -61,6 +63,7 @@ alias topcmds='cat ~/.zhistory | cut -d ";" -f 2 | sed "s, .*,," | sort | uniq -
 alias youtube-dl-audio='youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
 
 alias did="vim +'normal Go' +'r!date' ~/did.txt"
+alias didh="vim +'normal Go' +'r!date' ~/humadroid_did.txt"
 
 alias devlog="tail -f log/development.log"
 alias testlog="tail -f log/test.log"
