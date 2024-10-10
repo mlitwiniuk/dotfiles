@@ -48,6 +48,10 @@
   autoDetach = false
 [credential]
   helper = cache
+[includeIf "gitdir:~/Sites/jt/"]
+  path = ~/.gitconfig-jt
+[includeIf "hasconfig:remote.*.url:git://github.com/jobandtalent/**"]
+  path = ~/.gitconfig-jt
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [filter "lfs"]
