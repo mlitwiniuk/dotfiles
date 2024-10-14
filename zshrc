@@ -3,8 +3,8 @@
 #PATH="/usr/local/lib/node_modules:$PATH"
 PATH="$HOME/.local/bin:$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
 
-source ~/.prograils_env
-source ~/dev/prograils_dotfiles/aws-creds.bash
+# source ~/.prograils_env
+# source ~/dev/prograils_dotfiles/aws-creds.bash
 NIGHTSHELL_THEME=office-dark
 
 BASE16_SHELL=$HOME/.config/base16-shell/
