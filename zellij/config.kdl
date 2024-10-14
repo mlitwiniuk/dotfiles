@@ -8,8 +8,9 @@ keybinds clear-defaults=true {
 	normal {
 		unbind "Ctrl p"
 		unbind "Ctrl o"
-		unbind "Ctrl q"
+		// unbind "Ctrl q"
 		unbind "Ctrl h"
+		// unbind "Ctrl a"
 		// uncomment this and adjust key if using copy_on_select=false
 		// bind "Alt c" { Copy; }
 	}
@@ -30,7 +31,7 @@ keybinds clear-defaults=true {
 		bind "-" { Resize "Decrease"; }
 	}
 	pane {
-		bind "Ctrl a" { SwitchToMode "Normal"; }
+		bind "Ctrl q" { SwitchToMode "Normal"; }
 		bind "h" "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
 		bind "l" "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }
 		bind "j" "Down" { MoveFocus "Down"; SwitchToMode "Normal"; }
@@ -43,12 +44,12 @@ keybinds clear-defaults=true {
 		bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
 		bind "f" { TogglePaneFrames; SwitchToMode "Normal"; }
 		bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
-		bind "Ctrl a" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+		bind "Ctrl q" { ToggleFloatingPanes; SwitchToMode "Normal"; }
 		bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
 		bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
 	}
 	tab {
-		bind "Ctrl t" { SwitchToMode "Normal"; }
+		bind "Ctrl a" { SwitchToMode "Normal"; }
 		bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
 		bind "h" "Left" "Up" "k" { GoToPreviousTab; SwitchToMode "Normal"; }
 		bind "l" "Right" "Down" "j" { GoToNextTab; SwitchToMode "Normal"; }
@@ -160,7 +161,7 @@ keybinds clear-defaults=true {
 		bind "Enter" "Esc" { SwitchToMode "Normal"; }
 	}
 	shared_except "pane" "locked" {
-		bind "Ctrl a" { SwitchToMode "Pane"; }
+		bind "Ctrl q" { SwitchToMode "Pane"; }
 	}
 	shared_except "resize" "locked" {
 		bind "Ctrl n" { SwitchToMode "Resize"; }
@@ -172,7 +173,7 @@ keybinds clear-defaults=true {
 		bind "Ctrl x" { SwitchToMode "Session"; }
 	}
 	shared_except "tab" "locked" {
-		bind "Ctrl t" { SwitchToMode "Tab"; }
+		bind "Ctrl a" { SwitchToMode "Tab"; }
 	}
 	shared_except "renametab" "locked" {
 		bind "Alt r" { SwitchToMode "RenameTab"; }
