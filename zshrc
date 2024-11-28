@@ -85,6 +85,10 @@ r7(){
   cd ~/Sites/r7/
   asdf local ruby 3.3.4
 }
+r8(){
+  cd ~/Sites/r8/
+  asdf local ruby 3.3.6
+}
 e(){
   cd ~/dev/elixir/
 }
