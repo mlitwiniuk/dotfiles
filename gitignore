@@ -24,3 +24,4 @@ invoker*.ini
 ignored_stuff/
 node_modules
 gh-md-toc
+app/assets/builds
