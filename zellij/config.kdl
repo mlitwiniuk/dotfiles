@@ -8,6 +8,7 @@ keybinds clear-defaults=true {
 	normal {
 		unbind "Ctrl p"
 		unbind "Ctrl o"
+		unbind "Ctrl n"
 		// unbind "Ctrl q"
 		unbind "Ctrl h"
 		// unbind "Ctrl a"
@@ -18,7 +19,7 @@ keybinds clear-defaults=true {
 		bind "Ctrl g" { SwitchToMode "Normal"; }
 	}
 	resize {
-		bind "Ctrl n" { SwitchToMode "Normal"; }
+		bind "Ctrl m" { SwitchToMode "Normal"; }
 		bind "h" "Left" { Resize "Increase Left"; }
 		bind "j" "Down" { Resize "Increase Down"; }
 		bind "k" "Up" { Resize "Increase Up"; }
@@ -49,7 +50,10 @@ keybinds clear-defaults=true {
 		bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
 	}
 	tab {
+		//unbind "t"
 		bind "Ctrl a" { SwitchToMode "Normal"; }
+		bind "Ctrl c" { SwitchToMode "Normal"; }
+		bind "t" { ToggleTab; SwitchToMode "Normal"; }
 		bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
 		bind "h" "Left" "Up" "k" { GoToPreviousTab; SwitchToMode "Normal"; }
 		bind "l" "Right" "Down" "j" { GoToNextTab; SwitchToMode "Normal"; }
@@ -68,7 +72,15 @@ keybinds clear-defaults=true {
 		bind "7" { GoToTab 7; SwitchToMode "Normal"; }
 		bind "8" { GoToTab 8; SwitchToMode "Normal"; }
 		bind "9" { GoToTab 9; SwitchToMode "Normal"; }
-		bind "a" { ToggleTab; SwitchToMode "Normal"; }
+		//unbind "a"
+		bind "a" {
+        Write 1; // Sends CR
+        SwitchToMode "Normal";
+    }
+    bind "e" {
+        Write 5;
+        SwitchToMode "Normal";
+    }
 	}
 	scroll {
 		bind "Ctrl s" { SwitchToMode "Normal"; }
@@ -164,7 +176,7 @@ keybinds clear-defaults=true {
 		bind "Ctrl q" { SwitchToMode "Pane"; }
 	}
 	shared_except "resize" "locked" {
-		bind "Ctrl n" { SwitchToMode "Resize"; }
+		bind "Ctrl m" { SwitchToMode "Resize"; }
 	}
 	shared_except "scroll" "locked" {
 		bind "Ctrl s" { SwitchToMode "Scroll"; }
