@@ -1,7 +1,9 @@
-. $(brew --prefix asdf)/libexec/asdf.sh
+# activate mise
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+
 # ZSH_THEME="af-magic"
 #PATH="/usr/local/lib/node_modules:$PATH"
-PATH="$HOME/.local/bin:$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
+PATH="$HOME/.local/bin:$PATH"
 
 # source ~/.prograils_env
 # source ~/dev/prograils_dotfiles/aws-creds.bash
@@ -69,25 +71,17 @@ alias devlog="tail -f log/development.log"
 alias testlog="tail -f log/test.log"
 
 ## Go to dir and set rbenv version
-r4(){
-  cd ~/Sites/r4/
-  asdf local ruby 2.4.2
-}
-r5(){
-  cd ~/Sites/r5/
-  asdf local ruby 2.6.9
-}
 r6(){
   cd ~/Sites/r6/
-  asdf local ruby 3.0.3
+  mise use ruby@3.0.3
 }
 r7(){
   cd ~/Sites/r7/
-  asdf local ruby 3.3.4
+  mise use ruby@3.3.4
 }
 r8(){
   cd ~/Sites/r8/
-  asdf local ruby 3.3.6
+  mise use ruby@3.4.1
 }
 e(){
   cd ~/dev/elixir/
