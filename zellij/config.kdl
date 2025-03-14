@@ -72,6 +72,8 @@ keybinds clear-defaults=true {
 		bind "7" { GoToTab 7; SwitchToMode "Normal"; }
 		bind "8" { GoToTab 8; SwitchToMode "Normal"; }
 		bind "9" { GoToTab 9; SwitchToMode "Normal"; }
+		bind "i" { MoveTab "Left"; }
+		bind "o" { MoveTab "Right"; }
 		//unbind "a"
 		bind "a" {
         Write 1; // Sends CR
