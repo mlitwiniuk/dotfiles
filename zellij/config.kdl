@@ -210,7 +210,7 @@ plugins {
 //   - detach (Default)
 //   - quit
 //
-on_force_close "detach"
+on_force_close "quit"
 
 //  Send a request for a simplified ui (without arrow fonts) to plugins
 //  Options:
@@ -332,4 +332,4 @@ theme "catppuccin-mocha"
 
 // The folder in which Zellij will look for themes
 //
-theme_dir "/Users/mlitwiniuk/.config/zellij/themes"
+theme_dir "/home/mlitwiniuk/.config/zellij/themes"

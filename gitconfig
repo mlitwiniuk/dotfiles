@@ -1,9 +1,17 @@
+[pull]
+	rebase = true
 [init]
 	defaultBranch = master
 [user]
   name = Maciej Litwiniuk
   email = maciej@litwiniuk.net
 	signingkey = D52F9DF1
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
 [core]
   editor = nvim -f
 [commit]
@@ -32,7 +40,7 @@
   untracked = red
 [core]
 	excludesfile = /Users/mlitwiniuk/.gitignore
-	pager = delta --dark
+	pager = delta
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	ignorecase = false
 [alias]

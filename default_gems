@@ -1,9 +1,9 @@
 overcommit
 dip
-erb-formatter
-solargraph
 rubocop
 rubocop-performance
 rubocop-rails
 rubocop-rspec
+ruby-lsp
 kamal
+standardrb
